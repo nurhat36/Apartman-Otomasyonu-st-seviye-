@@ -16,7 +16,7 @@ public class ApartmanOtomasyonu extends JFrame{
     
      public ApartmanOtomasyonu() {
         // Ana pencere ayarları
-        setTitle("Apartman Otomasyonu ");
+        setTitle("Apartman Otomasyonu :");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
