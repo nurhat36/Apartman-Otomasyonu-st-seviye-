@@ -16,7 +16,7 @@ public class ApartmanOtomasyonu extends JFrame{
     
      public ApartmanOtomasyonu() {
         // Ana pencere ayarları
-        setTitle("Apartman Otomasyonu :");
+        setTitle("Apartman Otomasyonu ");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -106,15 +106,15 @@ public class ApartmanOtomasyonu extends JFrame{
         gbc.anchor = GridBagConstraints.WEST; // Sola hizala
 
         // Bina ID etiketi ve text field
-        JLabel binaIdLabel = new JLabel("Bina ID:");
+        JLabel binaIdLabel = new JLabel("Bina ID :");
         JTextField binaIdField = new JTextField(15); // 15 karakterlik genişlikte
 
         // Daire No etiketi ve text field
-        JLabel daireNoLabel = new JLabel("Daire No:");
+        JLabel daireNoLabel = new JLabel("Daire No :");
         JTextField daireNoField = new JTextField(15);
 
         // Şifre etiketi ve password field
-        JLabel sifreLabel = new JLabel("Şifre:");
+        JLabel sifreLabel = new JLabel("Şifre :");
         JPasswordField sifreField = new JPasswordField(15);
 
         // Giriş butonu
