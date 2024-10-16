@@ -15,7 +15,7 @@ public class ApartmanOtomasyonu extends JFrame{
     private JPanel formPanel;
     
      public ApartmanOtomasyonu() {
-        // Ana pencere ayarları
+        // Ana pencere ayarları burur dsafbsg
         setTitle("Apartman Otomasyonu ");
         setSize(400, 300);//ölçülerimiz
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
