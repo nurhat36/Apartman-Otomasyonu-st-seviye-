@@ -11,7 +11,7 @@ public class ApartmanOtomasyonu {
     public static void main(String[] args) {
        
         
-        // Bağlantı bilgileri
+        // Bağlantı bilgilerigre
         String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
         Connection connection = null;
         Statement statement = null;
