@@ -26,12 +26,22 @@
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
-                      <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
+                              <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="mailpanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -63,9 +73,14 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="mailpanel" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="mailpanel" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -111,103 +126,6 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="y&#xf6;neticipanel">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card2"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="yoneticititle" min="-2" pref="124" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="yoneticisifrelbl" min="-2" max="-2" attributes="0"/>
-                                  <Component id="yoneticibinano_jbl1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="yoneticibinano_jtf1" max="32767" attributes="0"/>
-                                  <Component id="yoneticisifre_jtf1" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="83" pref="83" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                          <Component id="yoneticigiris_btn1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="103" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="yoneticititle" min="-2" pref="29" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="yoneticibinano_jbl1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="yoneticibinano_jtf1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="yoneticisifrelbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="yoneticisifre_jtf1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="238" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
-                          <Component id="yoneticigiris_btn1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="187" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="yoneticititle">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Y&#xf6;netici Giri&#x15f;i"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="yoneticibinano_jbl1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="B&#x130;NA NO :"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="yoneticibinano_jtf1">
-            </Component>
-            <Component class="javax.swing.JLabel" name="yoneticisifrelbl">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x15e;&#x130;FRE :"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="yoneticisifre_jtf1">
-            </Component>
-            <Component class="javax.swing.JButton" name="yoneticigiris_btn1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="G&#x130;R&#x130;&#x15e; YAP"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
         <Container class="javax.swing.JPanel" name="kullan&#x131;c&#x131;panel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
@@ -320,6 +238,376 @@
             </Component>
           </SubComponents>
         </Container>
+        <Container class="javax.swing.JPanel" name="y&#xf6;neticipanel">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card2"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="yoneticititle" min="-2" pref="124" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="yoneticisifrelbl" min="-2" max="-2" attributes="0"/>
+                                  <Component id="yoneticibinano_jbl1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="yoneticibinano_jtf1" max="32767" attributes="0"/>
+                                  <Component id="yoneticisifre_jtf1" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="83" pref="83" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                          <Component id="yoneticigiris_btn1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="103" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="yoneticititle" min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="yoneticibinano_jbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="yoneticibinano_jtf1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="yoneticisifrelbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="yoneticisifre_jtf1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="238" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
+                          <Component id="yoneticigiris_btn1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="187" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="yoneticititle">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Y&#xf6;netici Giri&#x15f;i"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="yoneticibinano_jbl1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="B&#x130;NA NO :"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="yoneticibinano_jtf1">
+            </Component>
+            <Component class="javax.swing.JLabel" name="yoneticisifrelbl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x15e;&#x130;FRE :"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="yoneticisifre_jtf1">
+            </Component>
+            <Component class="javax.swing.JButton" name="yoneticigiris_btn1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="G&#x130;R&#x130;&#x15e; YAP"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                          <Component id="kay_ekr_jlbl" min="-2" pref="82" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="yön_kay_şif_jlbl" max="32767" attributes="0"/>
+                                      <Component id="yön_kay_dai_say_jlbl" max="32767" attributes="0"/>
+                                      <Component id="yoneticibinano_jlbl" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="yön_kay_şiftek_jlbl" min="-2" pref="77" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="yoneticibinano_jtfk" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="yön_kay_şiftek_jtf" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="yön_kay_dai_say_jtf" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="yön_kay_şif_jtf" min="-2" pref="71" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                          <Component id="yön_kay_jbtn" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="yönetici_kaydi_lbl" min="-2" pref="76" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="kay_ekr_jlbl" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="yönetici_kaydi_lbl" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="yoneticibinano_jlbl" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="yoneticibinano_jtfk" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="yön_kay_dai_say_jlbl" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="yön_kay_dai_say_jtf" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="yön_kay_şif_jlbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="yön_kay_şif_jtf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="yön_kay_şiftek_jlbl" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="yön_kay_şiftek_jtf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="yön_kay_jbtn" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="122" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="kay_ekr_jlbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="KAYIT EKRANI"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="y&#xf6;netici_kaydi_lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Y&#xf6;netici Kayd&#x131;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="yoneticibinano_jlbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="B&#x130;NA NO :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="yoneticibinano_jtfk">
+        </Component>
+        <Component class="javax.swing.JLabel" name="y&#xf6;n_kay_dai_say_jlbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Daire Say&#x131;s&#x131; :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="y&#xf6;n_kay_dai_say_jtf">
+        </Component>
+        <Component class="javax.swing.JLabel" name="y&#xf6;n_kay_&#x15f;if_jlbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x15e;&#x130;FRE :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="y&#xf6;n_kay_&#x15f;if_jtf">
+        </Component>
+        <Component class="javax.swing.JLabel" name="y&#xf6;n_kay_&#x15f;iftek_jlbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x15e;ifre Tekrar&#x131; :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="y&#xf6;n_kay_&#x15f;iftek_jtf">
+        </Component>
+        <Component class="javax.swing.JButton" name="y&#xf6;n_kay_jbtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="KAYIT OL"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                          <Component id="kay_ekr_kul_jlbl" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="kullanıcı_kaydi_jlbl" min="-2" pref="100" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="kull_binano_jlbl" max="32767" attributes="0"/>
+                              <Component id="kull_kay_daireno_jlbl" max="32767" attributes="0"/>
+                              <Component id="kull_kay_şif_jlbl" max="32767" attributes="0"/>
+                              <Component id="kull_kay_şiftek_jlbl" pref="70" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="kull_binano_jtfk" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="kull_daireno_jtfk" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="kull_kay_şif_jtf" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="kull_kay_şiftek_jtf" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                          <Component id="kull_kay_jbtn" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <Component id="kay_ekr_kul_jlbl" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="kullanıcı_kaydi_jlbl" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="kull_binano_jlbl" min="-2" max="-2" attributes="0"/>
+                                      <Component id="kull_binano_jtfk" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="kull_kay_daireno_jlbl" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="kull_daireno_jtfk" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="kull_kay_şif_jlbl" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="kull_kay_şif_jtf" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="kull_kay_şiftek_jlbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="kull_kay_şiftek_jtf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="kull_kay_jbtn" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="kay_ekr_kul_jlbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="KAYIT EKRANI"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="kullan&#x131;c&#x131;_kaydi_jlbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Kullan&#x131;c&#x131; Kayd&#x131;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="kull_binano_jlbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="B&#x130;NA NO :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="kull_kay_daireno_jlbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Daire NO :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="kull_kay_&#x15f;if_jlbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x15e;&#x130;FRE :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="kull_kay_&#x15f;iftek_jlbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x15e;ifre Tekrar&#x131; :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="kull_kay_jbtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="KAYIT OL"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="kull_binano_jtfk">
+        </Component>
+        <Component class="javax.swing.JTextField" name="kull_daireno_jtfk">
+        </Component>
+        <Component class="javax.swing.JTextField" name="kull_kay_&#x15f;if_jtf">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kull_kay_&#x15f;if_jtfActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="kull_kay_&#x15f;iftek_jtf">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
