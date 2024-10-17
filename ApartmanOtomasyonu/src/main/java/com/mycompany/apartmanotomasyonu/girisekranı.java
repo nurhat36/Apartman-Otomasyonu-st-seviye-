@@ -13,7 +13,7 @@ import java.awt.CardLayout;
 public class girisekranı extends javax.swing.JFrame {
 
     /**
-     * Creates new form girisekranı
+     * Creates new form girisekranıht
      */
     public girisekranı() {
         initComponents();
@@ -452,7 +452,7 @@ public class girisekranı extends javax.swing.JFrame {
     }//GEN-LAST:event_kullanıcıgiris_btn1ActionPerformed
 
     private void kull_kay_şif_jtfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kull_kay_şif_jtfActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:etwutwkjj
     }//GEN-LAST:event_kull_kay_şif_jtfActionPerformed
 
     /**
