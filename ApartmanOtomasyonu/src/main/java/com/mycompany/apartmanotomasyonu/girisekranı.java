@@ -452,7 +452,7 @@ public class girisekranı extends javax.swing.JFrame {
     }//GEN-LAST:event_kullanıcıgiris_btn1ActionPerformed
 
     private void kull_kay_şif_jtfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kull_kay_şif_jtfActionPerformed
-        // TODO add your handling code here:etwutwkjj
+        // TODO add your handling code here:etwutwkjjrheaht
     }//GEN-LAST:event_kull_kay_şif_jtfActionPerformed
 
     /**
