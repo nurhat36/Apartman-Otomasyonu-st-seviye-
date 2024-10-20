@@ -210,6 +210,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="G&#x130;R&#x130;&#x15e; YAP"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yoneticigiris_btn1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
