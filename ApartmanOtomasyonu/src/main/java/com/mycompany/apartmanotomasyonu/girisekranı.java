@@ -176,6 +176,11 @@ public class girisekranı extends javax.swing.JFrame {
         jLabel1.setText("ŞİFRE :");
 
         kullanicigiris_btn.setText("GİRİŞ YAP");
+        kullanicigiris_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kullanicigiris_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kullanıcıpanelLayout = new javax.swing.GroupLayout(kullanıcıpanel);
         kullanıcıpanel.setLayout(kullanıcıpanelLayout);
@@ -469,6 +474,14 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_yoneticigiris_btn1ActionPerformed
+
+    private void kullanicigiris_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kullanicigiris_btnActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new kullaniciekrani().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_kullanicigiris_btnActionPerformed
 
     /**
      * @param args the command line arguments
