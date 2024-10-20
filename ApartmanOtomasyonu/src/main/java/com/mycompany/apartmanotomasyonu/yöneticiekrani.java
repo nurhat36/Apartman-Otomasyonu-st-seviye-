@@ -6,6 +6,10 @@ package com.mycompany.apartmanotomasyonu;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Image;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -63,6 +67,8 @@ public class yöneticiekrani extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
         jButton2 = new javax.swing.JButton();
+        dekontyukleme_btn = new javax.swing.JButton();
+        imagelabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         aidatbelirle_panel = new javax.swing.JPanel();
@@ -351,6 +357,13 @@ public class yöneticiekrani extends javax.swing.JFrame {
 
         jButton2.setText("ONAYLA");
 
+        dekontyukleme_btn.setText("Dekont resmi yükle");
+        dekontyukleme_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dekontyukleme_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -359,16 +372,23 @@ public class yöneticiekrani extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(gidertarih_tf, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-                    .addComponent(jSpinner1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imagelabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(gidertarih_tf, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                                    .addComponent(jSpinner1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2))
+                            .addComponent(dekontyukleme_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 252, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -388,6 +408,10 @@ public class yöneticiekrani extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dekontyukleme_btn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(imagelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -546,7 +570,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
             jCheckBox1.setSelected(false);
             jCheckBox5.setSelected(false);
             jCheckBox6.setSelected(false);
-            
+
         }
     }//GEN-LAST:event_jCheckBox4ActionPerformed
 
@@ -584,7 +608,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
             jCheckBox4.setSelected(false);
             jCheckBox5.setSelected(false);
             jCheckBox6.setSelected(false);
-            
+
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
@@ -595,7 +619,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
             jCheckBox4.setSelected(false);
             jCheckBox5.setSelected(false);
             jCheckBox6.setSelected(false);
-            
+
         }
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
@@ -606,7 +630,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
             jCheckBox4.setSelected(false);
             jCheckBox5.setSelected(false);
             jCheckBox1.setSelected(false);
-            
+
         }
     }//GEN-LAST:event_jCheckBox6ActionPerformed
 
@@ -617,9 +641,35 @@ public class yöneticiekrani extends javax.swing.JFrame {
             jCheckBox4.setSelected(false);
             jCheckBox1.setSelected(false);
             jCheckBox6.setSelected(false);
-            
+
         }
     }//GEN-LAST:event_jCheckBox5ActionPerformed
+
+    private void dekontyukleme_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dekontyukleme_btnActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+
+        // Resimlerin bulunduğu klasörü açmak için başlangıç dizinini ayarla
+        fileChooser.setCurrentDirectory(new File("C:/path/to/Resimler"));
+
+        // Sadece dosya seçimi yapılacak şekilde ayarla
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+        // Dosya seçiciyi aç
+        int result = fileChooser.showOpenDialog(null);
+
+        // Eğer bir dosya seçildiyse
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String filePath = selectedFile.getAbsolutePath();
+            System.out.println("Seçilen Dosya: " + filePath);
+
+            // Seçilen dosyayı SQL Server'a yükle
+            ImageIcon imageIcon = new ImageIcon(filePath);
+            Image image = imageIcon.getImage(); // ImageIcon'dan Image al
+            Image scaledImage = image.getScaledInstance(400, 300, Image.SCALE_SMOOTH); // Yeniden boyutlandır
+            imagelabel.setIcon(new ImageIcon(scaledImage)); // JLabel'e resim ekle
+        }
+    }//GEN-LAST:event_dekontyukleme_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -664,6 +714,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
     private javax.swing.JPanel aidatbelirle_panel;
     private javax.swing.JSpinner aidatmiktari;
     private javax.swing.JComboBox<String> daireno_cmb;
+    private javax.swing.JButton dekontyukleme_btn;
     private javax.swing.JPanel digergider_panel;
     private javax.swing.JTextField digergider_tf;
     private javax.swing.JButton gelirler_btn;
@@ -672,6 +723,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
     private javax.swing.JButton giderler_btn;
     private javax.swing.JPanel giderler_panel;
     private javax.swing.JTextField gidertarih_tf;
+    private javax.swing.JLabel imagelabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
