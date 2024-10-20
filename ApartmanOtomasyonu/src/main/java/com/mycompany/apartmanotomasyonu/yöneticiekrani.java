@@ -14,7 +14,7 @@ import java.awt.Color;
 public class yöneticiekrani extends javax.swing.JFrame {
 
     /**
-     * Creates new form yöneticiekrani
+     * Creates new form yöneticiekraniykf
      */
     public yöneticiekrani() {
         initComponents();

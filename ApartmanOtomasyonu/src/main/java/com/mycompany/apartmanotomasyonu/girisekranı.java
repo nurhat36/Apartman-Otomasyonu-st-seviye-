@@ -110,6 +110,11 @@ public class girisekranı extends javax.swing.JFrame {
         yoneticisifrelbl.setText("ŞİFRE :");
 
         yoneticigiris_btn1.setText("GİRİŞ YAP");
+        yoneticigiris_btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yoneticigiris_btn1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout yöneticipanelLayout = new javax.swing.GroupLayout(yöneticipanel);
         yöneticipanel.setLayout(yöneticipanelLayout);
@@ -456,6 +461,14 @@ public class girisekranı extends javax.swing.JFrame {
     private void kull_kay_şif_jtfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kull_kay_şif_jtfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_kull_kay_şif_jtfActionPerformed
+
+    private void yoneticigiris_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yoneticigiris_btn1ActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new yöneticiekrani().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_yoneticigiris_btn1ActionPerformed
 
     /**
      * @param args the command line arguments
