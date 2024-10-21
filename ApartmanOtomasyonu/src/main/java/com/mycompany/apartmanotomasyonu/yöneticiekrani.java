@@ -573,6 +573,11 @@ public class yöneticiekrani extends javax.swing.JFrame {
             jCheckBox1.setSelected(false);
             jCheckBox5.setSelected(false);
             jCheckBox6.setSelected(false);
+            digergider_panel.setEnabled(false);
+            jLabel8.setEnabled(false);
+            digergider_panel.setBackground(Color.LIGHT_GRAY);
+            jLabel8.setBackground(Color.GRAY);
+            digergider_tf.setEnabled(false);
 
         }
     }//GEN-LAST:event_jCheckBox4ActionPerformed
@@ -611,6 +616,11 @@ public class yöneticiekrani extends javax.swing.JFrame {
             jCheckBox4.setSelected(false);
             jCheckBox5.setSelected(false);
             jCheckBox6.setSelected(false);
+            digergider_panel.setEnabled(false);
+            jLabel8.setEnabled(false);
+            digergider_panel.setBackground(Color.LIGHT_GRAY);
+            jLabel8.setBackground(Color.GRAY);
+            digergider_tf.setEnabled(false);
 
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
@@ -622,6 +632,11 @@ public class yöneticiekrani extends javax.swing.JFrame {
             jCheckBox4.setSelected(false);
             jCheckBox5.setSelected(false);
             jCheckBox6.setSelected(false);
+            digergider_panel.setEnabled(false);
+            jLabel8.setEnabled(false);
+            digergider_panel.setBackground(Color.LIGHT_GRAY);
+            jLabel8.setBackground(Color.GRAY);
+            digergider_tf.setEnabled(false);
 
         }
     }//GEN-LAST:event_jCheckBox2ActionPerformed
@@ -633,6 +648,11 @@ public class yöneticiekrani extends javax.swing.JFrame {
             jCheckBox4.setSelected(false);
             jCheckBox5.setSelected(false);
             jCheckBox1.setSelected(false);
+            digergider_panel.setEnabled(false);
+            jLabel8.setEnabled(false);
+            digergider_panel.setBackground(Color.LIGHT_GRAY);
+            jLabel8.setBackground(Color.GRAY);
+            digergider_tf.setEnabled(false);
 
         }
     }//GEN-LAST:event_jCheckBox6ActionPerformed
@@ -644,6 +664,11 @@ public class yöneticiekrani extends javax.swing.JFrame {
             jCheckBox4.setSelected(false);
             jCheckBox1.setSelected(false);
             jCheckBox6.setSelected(false);
+            digergider_panel.setEnabled(false);
+            jLabel8.setEnabled(false);
+            digergider_panel.setBackground(Color.LIGHT_GRAY);
+            jLabel8.setBackground(Color.GRAY);
+            digergider_tf.setEnabled(false);
 
         }
     }//GEN-LAST:event_jCheckBox5ActionPerformed
@@ -651,22 +676,22 @@ public class yöneticiekrani extends javax.swing.JFrame {
     private void dekontyukleme_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dekontyukleme_btnActionPerformed
         JFileChooser fileChooser = new JFileChooser();
 
-        // Resimlerin bulunduğu klasörü açmak için başlangıç dizinini ayarla
+        
         fileChooser.setCurrentDirectory(new File("C:/path/to/Resimler"));
 
-        // Sadece dosya seçimi yapılacak şekilde ayarla
+        
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
-        // Dosya seçiciyi aç
+        
         int result = fileChooser.showOpenDialog(null);
 
-        // Eğer bir dosya seçildiyse
+       
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             String filePath = selectedFile.getAbsolutePath();
             System.out.println("Seçilen Dosya: " + filePath);
 
-            // Seçilen dosyayı SQL Server'a yükle
+            
             ImageIcon imageIcon = new ImageIcon(filePath);
             Image image = imageIcon.getImage(); // ImageIcon'dan Image al
             Image scaledImage = image.getScaledInstance(400, 300, Image.SCALE_SMOOTH); // Yeniden boyutlandır
