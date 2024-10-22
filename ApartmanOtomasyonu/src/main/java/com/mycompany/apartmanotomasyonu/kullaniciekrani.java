@@ -171,7 +171,7 @@ public class kullaniciekrani extends javax.swing.JFrame {
     }//GEN-LAST:event_kull_ekr_bin_gideri_jbtnActionPerformed
 
     /**
-     * @param args the command line arguments
+     * @param args the command line arguments nurhatın bu
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
