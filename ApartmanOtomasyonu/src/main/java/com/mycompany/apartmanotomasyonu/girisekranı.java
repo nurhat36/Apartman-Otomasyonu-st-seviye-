@@ -18,7 +18,7 @@ public class girisekranı extends javax.swing.JFrame {
     public girisekranı() {
         initComponents();
     }
-    //benim canim kendim
+    //benim canim       kendim
 
     /**
      * This method is called from within the constructor to initialize the form.
