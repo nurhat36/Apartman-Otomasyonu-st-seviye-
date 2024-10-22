@@ -4,6 +4,8 @@
  */
 package com.mycompany.apartmanotomasyonu;
 
+import java.awt.CardLayout;
+
 /**
  *
  * @author Nurhat
@@ -26,32 +28,23 @@ public class kullaniciekrani extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        kull_ekr_ust_lbl1 = new javax.swing.JLabel();
-        kull_ekr_ustlbl2 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         dek_alani_lbl = new javax.swing.JLabel();
-        kull_ekr_bin_gideri_jbtn = new javax.swing.JButton();
         kull_ekr_aidat_jbtn = new javax.swing.JButton();
+        kull_ekr_bin_gideri_jbtn = new javax.swing.JButton();
+        kull_ekr_ust_lbl1 = new javax.swing.JLabel();
+        kullanicitablomain_panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         kull_ekr_tbl1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         kull_ekr_tbl2 = new javax.swing.JTable();
+        kull_ekr_ustlbl2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        kull_ekr_ust_lbl1.setBackground(new java.awt.Color(51, 255, 0));
-        kull_ekr_ust_lbl1.setText("Bu ayki aidatı ödediniz.");
-        kull_ekr_ust_lbl1.setOpaque(true);
-
-        kull_ekr_ustlbl2.setBackground(new java.awt.Color(51, 255, 0));
-        kull_ekr_ustlbl2.setText("Ekstra bina masrafını ödediniz.");
-        kull_ekr_ustlbl2.setOpaque(true);
-
         dek_alani_lbl.setBackground(new java.awt.Color(255, 0, 0));
-        dek_alani_lbl.setText("DEKONT");
         dek_alani_lbl.setOpaque(true);
-
-        kull_ekr_bin_gideri_jbtn.setBackground(new java.awt.Color(255, 0, 0));
-        kull_ekr_bin_gideri_jbtn.setText("Bina giderleri");
 
         kull_ekr_aidat_jbtn.setBackground(new java.awt.Color(0, 0, 255));
         kull_ekr_aidat_jbtn.setText("Aidatlarınız");
@@ -60,6 +53,20 @@ public class kullaniciekrani extends javax.swing.JFrame {
                 kull_ekr_aidat_jbtnActionPerformed(evt);
             }
         });
+
+        kull_ekr_bin_gideri_jbtn.setBackground(new java.awt.Color(255, 0, 0));
+        kull_ekr_bin_gideri_jbtn.setText("Bina giderleri");
+        kull_ekr_bin_gideri_jbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kull_ekr_bin_gideri_jbtnActionPerformed(evt);
+            }
+        });
+
+        kull_ekr_ust_lbl1.setBackground(new java.awt.Color(51, 255, 0));
+        kull_ekr_ust_lbl1.setText("Bu ayki aidatı ödediniz.");
+        kull_ekr_ust_lbl1.setOpaque(true);
+
+        kullanicitablomain_panel.setLayout(new java.awt.CardLayout());
 
         kull_ekr_tbl1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,6 +81,8 @@ public class kullaniciekrani extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(kull_ekr_tbl1);
 
+        kullanicitablomain_panel.add(jScrollPane1, "card2");
+
         kull_ekr_tbl2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -87,58 +96,79 @@ public class kullaniciekrani extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(kull_ekr_tbl2);
 
+        kullanicitablomain_panel.add(jScrollPane2, "card3");
+
+        kull_ekr_ustlbl2.setBackground(new java.awt.Color(51, 255, 0));
+        kull_ekr_ustlbl2.setText("Ekstra bina masrafını ödediniz.");
+        kull_ekr_ustlbl2.setOpaque(true);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(kullanicitablomain_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(kull_ekr_ustlbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(kull_ekr_bin_gideri_jbtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(kull_ekr_aidat_jbtn)
+                                .addGap(0, 0, 0)
+                                .addComponent(dek_alani_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(kull_ekr_ust_lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kull_ekr_ust_lbl1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kull_ekr_ustlbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(kull_ekr_aidat_jbtn)
+                        .addComponent(kull_ekr_bin_gideri_jbtn))
+                    .addComponent(dek_alani_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kullanicitablomain_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jScrollPane3.setViewportView(jPanel1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kull_ekr_ust_lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(kull_ekr_ustlbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(kull_ekr_bin_gideri_jbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kull_ekr_aidat_jbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(dek_alani_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(kull_ekr_ust_lbl1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kull_ekr_ustlbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(kull_ekr_bin_gideri_jbtn)
-                            .addComponent(kull_ekr_aidat_jbtn)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dek_alani_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void kull_ekr_aidat_jbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kull_ekr_aidat_jbtnActionPerformed
-        // TODO add your handling code here:
+        CardLayout card = (CardLayout) kullanicitablomain_panel.getLayout();
+        card.show(kullanicitablomain_panel, "card3");
     }//GEN-LAST:event_kull_ekr_aidat_jbtnActionPerformed
+
+    private void kull_ekr_bin_gideri_jbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kull_ekr_bin_gideri_jbtnActionPerformed
+        CardLayout card = (CardLayout) kullanicitablomain_panel.getLayout();
+        card.show(kullanicitablomain_panel, "card2");
+    }//GEN-LAST:event_kull_ekr_bin_gideri_jbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,13 +207,16 @@ public class kullaniciekrani extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dek_alani_lbl;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton kull_ekr_aidat_jbtn;
     private javax.swing.JButton kull_ekr_bin_gideri_jbtn;
     private javax.swing.JTable kull_ekr_tbl1;
     private javax.swing.JTable kull_ekr_tbl2;
     private javax.swing.JLabel kull_ekr_ust_lbl1;
     private javax.swing.JLabel kull_ekr_ustlbl2;
+    private javax.swing.JPanel kullanicitablomain_panel;
     // End of variables declaration//GEN-END:variables
 }
