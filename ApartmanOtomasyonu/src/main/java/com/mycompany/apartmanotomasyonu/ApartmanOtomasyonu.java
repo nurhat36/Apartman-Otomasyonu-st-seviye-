@@ -56,7 +56,7 @@ public class ApartmanOtomasyonu {
                 new girisekranı().setVisible(true); 
                 
                 
-                // çok iyi işler çıkarıyonuz böyle devam
+                // çok iyi işler çıkarıyonuz böyle devam...
             }
         });
 
