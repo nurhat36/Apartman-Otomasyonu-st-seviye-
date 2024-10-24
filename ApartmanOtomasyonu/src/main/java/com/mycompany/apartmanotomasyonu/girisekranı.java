@@ -5,6 +5,12 @@
 package com.mycompany.apartmanotomasyonu;
 
 import java.awt.CardLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -245,6 +251,11 @@ public class girisekranı extends javax.swing.JFrame {
         yön_kay_şiftek_jlbl.setText("Şifre Tekrarı :");
 
         yön_kay_jbtn.setText("KAYIT OL");
+        yön_kay_jbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yön_kay_jbtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -451,16 +462,16 @@ public class girisekranı extends javax.swing.JFrame {
 
     private void yoneticigirisi_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yoneticigirisi_btnActionPerformed
         CardLayout card = (CardLayout) kullanicimain.getLayout();
-        card.show(kullanicimain, "card2"); 
+        card.show(kullanicimain, "card2");
         CardLayout card2 = (CardLayout) yoneticigiris.getLayout();
-        card2.show(yoneticigiris, "card2"); 
+        card2.show(yoneticigiris, "card2");
     }//GEN-LAST:event_yoneticigirisi_btnActionPerformed
 
     private void kullanıcıgiris_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kullanıcıgiris_btn1ActionPerformed
         CardLayout card = (CardLayout) kullanicimain.getLayout();
-        card.show(kullanicimain, "card3"); 
+        card.show(kullanicimain, "card3");
         CardLayout card2 = (CardLayout) yoneticigiris.getLayout();
-        card2.show(yoneticigiris, "card3"); 
+        card2.show(yoneticigiris, "card3");
     }//GEN-LAST:event_kullanıcıgiris_btn1ActionPerformed
 
     private void kull_kay_şif_jtfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kull_kay_şif_jtfActionPerformed
@@ -468,11 +479,70 @@ public class girisekranı extends javax.swing.JFrame {
     }//GEN-LAST:event_kull_kay_şif_jtfActionPerformed
 
     private void yoneticigiris_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yoneticigiris_btn1ActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new yöneticiekrani().setVisible(true);
+        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // JDBC Sürücüsünü yükle
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            // Bağlantıyı başlat
+            connection = DriverManager.getConnection(url);
+            System.out.println("Bağlantı başarılı!");
+
+            // Kullanıcıdan alınan veriler
+            String girilenKullaniciAdi = yoneticibinano_jtf1.getText(); // Kullanıcı adını UI'den çekiyoruz
+            String girilenSifre = yoneticisifre_jtf1.getText(); // Şifreyi UI'den çekiyoruz
+
+            // SQL'den kullanıcı adı ve şifreyi seçiyoruz
+            String selectSQL = "SELECT Bina_No, şifre FROM yötici_kayitlari_table WHERE Bina_No = ?";
+
+            preparedStatement = connection.prepareStatement(selectSQL);
+            preparedStatement.setString(1, girilenKullaniciAdi); // SQL'deki '?' yerine girilen kullanıcı adını koyuyoruz
+            resultSet = preparedStatement.executeQuery();
+
+            // Eğer sonuç varsa
+            if (resultSet.next()) {
+                String veritabanindakiSifre = resultSet.getString("şifre");
+
+                // Girilen şifreyle veritabanındaki şifreyi karşılaştırıyoruz
+                if (veritabanindakiSifre.equals(girilenSifre)) {
+                    System.out.println("Bina_No adı ve şifre doğru, işlem başarılı!");
+                    java.awt.EventQueue.invokeLater(new Runnable() {
+                        public void run() {
+                            new yöneticiekrani().setVisible(true);
+                        }
+                    });
+                    // Burada gerekli işlemleri yapabilirsiniz
+                } else {
+                    System.out.println("Şifre yanlış.");
+                }
+            } else {
+                System.out.println("Kullanıcı adı bulunamadı.");
             }
-        });
+
+        } catch (ClassNotFoundException e) {
+            System.err.println("SQL Server JDBC sürücüsü bulunamadı.");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
     }//GEN-LAST:event_yoneticigiris_btn1ActionPerformed
 
     private void kullanicigiris_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kullanicigiris_btnActionPerformed
@@ -482,6 +552,63 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_kullanicigiris_btnActionPerformed
+
+    private void yön_kay_jbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yön_kay_jbtnActionPerformed
+        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // JDBC Sürücüsünü yükle
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            // Bağlantıyı başlat
+            connection = DriverManager.getConnection(url);
+            System.out.println("Bağlantı başarılı!");
+
+            // Parametreli sorgu
+            String insertSQL = "INSERT INTO yötici_kayitlari_table (Bina_No, Daire_Sayısı,şifre) VALUES (?, ?, ?)";
+
+            // PreparedStatement oluştur
+            preparedStatement = connection.prepareStatement(insertSQL);
+
+            // Parametreleri ayarla (Örnek veriler: "değer1", 123)
+            preparedStatement.setString(1, yoneticibinano_jtfk.getText());
+            preparedStatement.setInt(2, Integer.parseInt(yön_kay_dai_say_jtf.getText()));
+            if (yön_kay_şif_jtf.getText().equals(yön_kay_şiftek_jtf.getText())) {
+                preparedStatement.setString(3, yön_kay_şiftek_jtf.getText());
+            }
+
+            // Sorguyu çalıştır
+            int rowsInserted = preparedStatement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("Kayıt başarıyla eklendi!");
+            }
+
+        } catch (ClassNotFoundException e) {
+            // Sürücü yükleme hatası
+            System.err.println("SQL Server JDBC sürücüsü bulunamadı.");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // Bağlantı veya sorgu hatası
+            e.printStackTrace();
+        } finally {
+            // Kaynakları kapat
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_yön_kay_jbtnActionPerformed
 
     /**
      * @param args the command line arguments

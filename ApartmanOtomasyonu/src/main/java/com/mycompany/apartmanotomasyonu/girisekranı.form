@@ -482,6 +482,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="KAYIT OL"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="y&#xf6;n_kay_jbtnActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
