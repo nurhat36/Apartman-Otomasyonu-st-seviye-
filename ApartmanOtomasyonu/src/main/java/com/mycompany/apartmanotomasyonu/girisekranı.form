@@ -33,13 +33,7 @@
                       <Component id="yoneticigirisi_btn" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
-                      <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                      <Component id="mailpanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="299" max="-2" attributes="0"/>
                       <Component id="kullanicimain" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="yoneticigiris" min="-2" max="-2" attributes="0"/>
@@ -59,16 +53,8 @@
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="mailpanel" min="-2" pref="268" max="-2" attributes="0"/>
-                          <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                          <Component id="kullanicimain" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="kullanicimain" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
@@ -100,18 +86,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kullan&#x131;c&#x131;giris_btn1ActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel5">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
-    </Container>
-    <Container class="javax.swing.JPanel" name="jPanel6">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
-    </Container>
-    <Container class="javax.swing.JPanel" name="mailpanel">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
-    </Container>
     <Container class="javax.swing.JPanel" name="kullanicimain">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
@@ -126,9 +100,9 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                               <Component id="yoneticititle" min="-2" pref="124" max="-2" attributes="0"/>
                           </Group>
@@ -139,20 +113,19 @@
                                   <Component id="yoneticibinano_jbl1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                      <Component id="yoneticigiris_btn1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="yöneticigirispass" alignment="0" pref="98" max="32767" attributes="0"/>
                                   <Component id="yoneticibinano_jtf1" max="32767" attributes="0"/>
-                                  <Component id="yoneticisifre_jtf1" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="83" pref="83" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                          <Component id="yoneticigiris_btn1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="103" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -166,19 +139,15 @@
                           <Component id="yoneticibinano_jbl1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="yoneticibinano_jtf1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="yoneticisifrelbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="yoneticisifre_jtf1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="yöneticigirispass" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="238" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
-                          <Component id="yoneticigiris_btn1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="187" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="yoneticigiris_btn1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="262" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -204,8 +173,6 @@
                 <Property name="text" type="java.lang.String" value="&#x15e;&#x130;FRE :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="yoneticisifre_jtf1">
-            </Component>
             <Component class="javax.swing.JButton" name="yoneticigiris_btn1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="G&#x130;R&#x130;&#x15e; YAP"/>
@@ -213,6 +180,16 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yoneticigiris_btn1ActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="g&#xf6;ster"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="y&#xf6;neticigirispass">
             </Component>
           </SubComponents>
         </Container>
@@ -236,21 +213,21 @@
                                   <Component id="kullanicibinano_jbl" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="kullanicigiris_btn" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="daireno_cmb" pref="96" max="32767" attributes="0"/>
-                                      <Component id="binano_jtf" max="32767" attributes="0"/>
-                                      <Component id="sifre_jtf" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="daireno_cmb" pref="96" max="32767" attributes="0"/>
+                                  <Component id="binano_jtf" max="32767" attributes="0"/>
+                                  <Component id="jPasswordField3" alignment="0" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                               <Component id="title_jbl" min="-2" pref="124" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="87" max="32767" attributes="0"/>
+                      <EmptySpace pref="34" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -272,11 +249,12 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="sifre_jtf" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPasswordField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="kullanicigiris_btn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="140" max="32767" attributes="0"/>
+                      <EmptySpace pref="219" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -322,14 +300,22 @@
                 <Property name="text" type="java.lang.String" value="&#x15e;&#x130;FRE :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="sifre_jtf">
-            </Component>
             <Component class="javax.swing.JButton" name="kullanicigiris_btn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="G&#x130;R&#x130;&#x15e; YAP"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kullanicigiris_btnActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="jPasswordField3">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="g&#xf6;ster"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -355,51 +341,59 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                               <Component id="kay_ekr_jlbl" min="-2" pref="82" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="yön_kay_şif_jlbl" max="32767" attributes="0"/>
-                                          <Component id="yön_kay_dai_say_jlbl" max="32767" attributes="0"/>
-                                          <Component id="yoneticibinano_jlbl" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="yön_kay_şiftek_jlbl" min="-2" pref="77" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="yoneticibinano_jtfk" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="yön_kay_şiftek_jtf" min="-2" pref="71" max="-2" attributes="0"/>
-                                          <Component id="yön_kay_dai_say_jtf" min="-2" pref="71" max="-2" attributes="0"/>
-                                          <Component id="yön_kay_şif_jtf" min="-2" pref="71" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="yön_kay_şiftek_jlbl" min="-2" pref="77" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="yön_kay_şif_jlbl" max="32767" attributes="0"/>
+                                                  <Component id="yön_kay_dai_say_jlbl" max="32767" attributes="0"/>
+                                                  <Component id="yoneticibinano_jlbl" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jPasswordField1" max="32767" attributes="0"/>
+                                                  <Component id="yoneticibinano_jtfk" max="32767" attributes="0"/>
+                                                  <Component id="jPasswordField2" alignment="1" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                              <Component id="yön_kay_dai_say_jtf" pref="109" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="yön_kay_jbtn" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                              <Component id="yönetici_kaydi_lbl" min="-2" pref="76" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="yönetici_kaydi_lbl" min="-2" pref="76" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="yön_kay_jbtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -425,16 +419,18 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="yön_kay_şif_jlbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="yön_kay_şif_jtf" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="yön_kay_şiftek_jlbl" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="yön_kay_şiftek_jtf" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPasswordField2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="36" max="32767" attributes="0"/>
                       <Component id="yön_kay_jbtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -469,14 +465,10 @@
                 <Property name="text" type="java.lang.String" value="&#x15e;&#x130;FRE :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="y&#xf6;n_kay_&#x15f;if_jtf">
-            </Component>
             <Component class="javax.swing.JLabel" name="y&#xf6;n_kay_&#x15f;iftek_jlbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#x15e;ifre Tekrar&#x131; :"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="y&#xf6;n_kay_&#x15f;iftek_jtf">
             </Component>
             <Component class="javax.swing.JButton" name="y&#xf6;n_kay_jbtn">
               <Properties>
@@ -485,6 +477,18 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="y&#xf6;n_kay_jbtnActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="g&#xf6;ster"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="jPasswordField2">
             </Component>
           </SubComponents>
         </Container>
@@ -500,22 +504,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="kull_binano_jlbl" max="32767" attributes="0"/>
-                                  <Component id="kull_kay_daireno_jlbl" max="32767" attributes="0"/>
-                                  <Component id="kull_kay_şif_jlbl" max="32767" attributes="0"/>
-                                  <Component id="kull_kay_şiftek_jlbl" pref="70" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="kull_binano_jtfk" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="kull_daireno_jtfk" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="kull_kay_şif_jtf" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="kull_kay_şiftek_jtf" min="-2" pref="71" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                               <Component id="kull_kay_jbtn" min="-2" max="-2" attributes="0"/>
@@ -527,8 +515,29 @@
                                   <Component id="kullanıcı_kaydi_jlbl" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="kull_binano_jlbl" max="32767" attributes="0"/>
+                                          <Component id="kull_kay_daireno_jlbl" max="32767" attributes="0"/>
+                                          <Component id="kull_kay_şif_jlbl" max="32767" attributes="0"/>
+                                          <Component id="kull_kay_şiftek_jlbl" pref="70" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jPasswordField5" max="32767" attributes="0"/>
+                                          <Component id="kull_binano_jtfk" min="-2" pref="71" max="-2" attributes="0"/>
+                                          <Component id="kull_daireno_jtfk" min="-2" pref="71" max="-2" attributes="0"/>
+                                          <Component id="jPasswordField4" alignment="1" min="-2" pref="71" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -543,29 +552,29 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="kull_binano_jlbl" min="-2" max="-2" attributes="0"/>
-                                          <Component id="kull_binano_jtfk" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="kull_kay_daireno_jlbl" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="kull_daireno_jtfk" min="-2" max="-2" attributes="0"/>
+                                  <Component id="kull_binano_jlbl" min="-2" max="-2" attributes="0"/>
+                                  <Component id="kull_binano_jtfk" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="kull_kay_şif_jlbl" min="-2" max="-2" attributes="0"/>
+                              <Component id="kull_kay_daireno_jlbl" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="kull_kay_şif_jtf" min="-2" max="-2" attributes="0"/>
+                          <Component id="kull_daireno_jtfk" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="kull_kay_şif_jlbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPasswordField4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="kull_kay_şiftek_jlbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="kull_kay_şiftek_jtf" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPasswordField5" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
                       <Component id="kull_kay_jbtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -610,12 +619,17 @@
             </Component>
             <Component class="javax.swing.JTextField" name="kull_daireno_jtfk">
             </Component>
-            <Component class="javax.swing.JTextField" name="kull_kay_&#x15f;if_jtf">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kull_kay_&#x15f;if_jtfActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JPasswordField" name="jPasswordField4">
             </Component>
-            <Component class="javax.swing.JTextField" name="kull_kay_&#x15f;iftek_jtf">
+            <Component class="javax.swing.JPasswordField" name="jPasswordField5">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="g&#xf6;ster"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
