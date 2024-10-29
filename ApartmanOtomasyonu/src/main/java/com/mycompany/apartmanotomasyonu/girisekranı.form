@@ -343,13 +343,10 @@
                               <Component id="kay_ekr_jlbl" min="-2" pref="82" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
+                                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace max="-2" attributes="0"/>
@@ -364,23 +361,19 @@
                                               </Group>
                                           </Group>
                                       </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jPasswordField1" max="32767" attributes="0"/>
-                                                  <Component id="yoneticibinano_jtfk" max="32767" attributes="0"/>
-                                                  <Component id="jPasswordField2" alignment="1" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                              <Component id="yön_kay_dai_say_jtf" pref="109" max="32767" attributes="0"/>
+                                          <Component id="yön_kay_jbtn" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jPasswordField1" alignment="0" pref="111" max="32767" attributes="0"/>
+                                              <Component id="yön_kay_dai_say_jtf" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="yoneticibinano_jtfk" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jPasswordField2" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <EmptySpace pref="40" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -389,11 +382,6 @@
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="yönetici_kaydi_lbl" min="-2" pref="76" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="yön_kay_jbtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -405,16 +393,14 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="yönetici_kaydi_lbl" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="yoneticibinano_jlbl" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="yoneticibinano_jtfk" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="yön_kay_dai_say_jlbl" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="yön_kay_dai_say_jtf" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="yoneticibinano_jlbl" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="yoneticibinano_jtfk" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="yön_kay_dai_say_jlbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="yön_kay_dai_say_jtf" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -529,9 +515,9 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jPasswordField5" max="32767" attributes="0"/>
-                                          <Component id="kull_binano_jtfk" min="-2" pref="71" max="-2" attributes="0"/>
-                                          <Component id="kull_daireno_jtfk" min="-2" pref="71" max="-2" attributes="0"/>
-                                          <Component id="jPasswordField4" alignment="1" min="-2" pref="71" max="-2" attributes="0"/>
+                                          <Component id="kull_binano_jtfk" alignment="0" pref="104" max="32767" attributes="0"/>
+                                          <Component id="kull_daireno_jtfk" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jPasswordField4" alignment="1" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -572,7 +558,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
                       <Component id="kull_kay_jbtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
