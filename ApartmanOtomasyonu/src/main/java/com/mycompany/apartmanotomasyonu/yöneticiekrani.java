@@ -22,6 +22,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
      */
     public yöneticiekrani() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
