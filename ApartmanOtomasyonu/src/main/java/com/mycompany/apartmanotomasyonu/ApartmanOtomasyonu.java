@@ -1,4 +1,4 @@
-package com.mycompany.apartmanotomasyonu;
+package com.mycompany.apartmanotomasyonu;//wrgerge
 
 import java.sql.Connection;
 import java.sql.DriverManager;
