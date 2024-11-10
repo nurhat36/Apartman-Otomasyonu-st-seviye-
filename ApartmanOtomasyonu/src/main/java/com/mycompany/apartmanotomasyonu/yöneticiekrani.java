@@ -10,7 +10,8 @@ import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 /**
  *
  * @author Nurhat
@@ -22,6 +23,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
      */
     public yöneticiekrani() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -539,7 +541,9 @@ public class yöneticiekrani extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void gelirtarihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gelirtarihActionPerformed
-        // TODO add your handling code here:
+        LocalDate tarih2 = LocalDate.now();
+        DateTimeFormatter format2 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        gidertarih_tf.setText(tarih2.format(format2));
     }//GEN-LAST:event_gelirtarihActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -606,7 +610,9 @@ public class yöneticiekrani extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     private void gidertarih_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gidertarih_tfActionPerformed
-        // TODO add your handling code here:
+        LocalDate tarih = LocalDate.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        gidertarih_tf.setText(tarih.format(format));
     }//GEN-LAST:event_gidertarih_tfActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed

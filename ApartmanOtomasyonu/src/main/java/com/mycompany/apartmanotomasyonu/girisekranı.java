@@ -5,6 +5,13 @@
 package com.mycompany.apartmanotomasyonu;
 
 import java.awt.CardLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.UIManager;
 
 /**
  *
@@ -17,6 +24,7 @@ public class girisekranı extends javax.swing.JFrame {
      */
     public girisekranı() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -30,27 +38,18 @@ public class girisekranı extends javax.swing.JFrame {
 
         yoneticigirisi_btn = new javax.swing.JButton();
         kullanıcıgiris_btn1 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        mailpanel = new javax.swing.JPanel();
         kullanicimain = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         yöneticipanel = new javax.swing.JPanel();
         yoneticititle = new javax.swing.JLabel();
         yoneticibinano_jbl1 = new javax.swing.JLabel();
         yoneticibinano_jtf1 = new javax.swing.JTextField();
         yoneticisifrelbl = new javax.swing.JLabel();
-        yoneticisifre_jtf1 = new javax.swing.JTextField();
         yoneticigiris_btn1 = new javax.swing.JButton();
-        kullanıcıpanel = new javax.swing.JPanel();
-        title_jbl = new javax.swing.JLabel();
-        kullanicibinano_jbl = new javax.swing.JLabel();
-        kullanicidaireno_jbl = new javax.swing.JLabel();
-        daireno_cmb = new javax.swing.JComboBox<>();
-        binano_jtf = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        sifre_jtf = new javax.swing.JTextField();
-        kullanicigiris_btn = new javax.swing.JButton();
-        yoneticigiris = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        yöneticigirispass = new javax.swing.JPasswordField();
+        jButton6 = new javax.swing.JButton();
+        yön_gr_hata_lbli = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         kay_ekr_jlbl = new javax.swing.JLabel();
         yönetici_kaydi_lbl = new javax.swing.JLabel();
@@ -59,10 +58,25 @@ public class girisekranı extends javax.swing.JFrame {
         yön_kay_dai_say_jlbl = new javax.swing.JLabel();
         yön_kay_dai_say_jtf = new javax.swing.JTextField();
         yön_kay_şif_jlbl = new javax.swing.JLabel();
-        yön_kay_şif_jtf = new javax.swing.JTextField();
         yön_kay_şiftek_jlbl = new javax.swing.JLabel();
-        yön_kay_şiftek_jtf = new javax.swing.JTextField();
         yön_kay_jbtn = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordField2 = new javax.swing.JPasswordField();
+        jButton8 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        kullanıcıpanel = new javax.swing.JPanel();
+        title_jbl = new javax.swing.JLabel();
+        kullanicibinano_jbl = new javax.swing.JLabel();
+        kullanicidaireno_jbl = new javax.swing.JLabel();
+        daireno_cmb = new javax.swing.JComboBox<>();
+        binano_jtf = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        kullanicigiris_btn = new javax.swing.JButton();
+        jPasswordField3 = new javax.swing.JPasswordField();
+        jButton4 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        kul_gir_hata_lbli = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         kay_ekr_kul_jlbl = new javax.swing.JLabel();
         kullanıcı_kaydi_jlbl = new javax.swing.JLabel();
@@ -73,12 +87,17 @@ public class girisekranı extends javax.swing.JFrame {
         kull_kay_jbtn = new javax.swing.JButton();
         kull_binano_jtfk = new javax.swing.JTextField();
         kull_daireno_jtfk = new javax.swing.JTextField();
-        kull_kay_şif_jtf = new javax.swing.JTextField();
-        kull_kay_şiftek_jtf = new javax.swing.JTextField();
+        jPasswordField4 = new javax.swing.JPasswordField();
+        jPasswordField5 = new javax.swing.JPasswordField();
+        jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GİRİŞ YAP");
+        setBackground(new java.awt.Color(25, 183, 244));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        yoneticigirisi_btn.setBackground(new java.awt.Color(255, 0, 204));
         yoneticigirisi_btn.setText("Yönetici Girişi");
         yoneticigirisi_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,13 +113,11 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
 
-        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
-
-        jPanel6.setLayout(new java.awt.CardLayout());
-
-        mailpanel.setLayout(new java.awt.CardLayout());
-
         kullanicimain.setLayout(new java.awt.CardLayout());
+
+        jPanel3.setLayout(new java.awt.CardLayout());
+
+        yöneticipanel.setBackground(new java.awt.Color(255, 0, 204));
 
         yoneticititle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         yoneticititle.setText("Yönetici Girişi");
@@ -116,6 +133,22 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("göster");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Kayıt Ol");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        yön_gr_hata_lbli.setText(" ");
+
         javax.swing.GroupLayout yöneticipanelLayout = new javax.swing.GroupLayout(yöneticipanel);
         yöneticipanel.setLayout(yöneticipanelLayout);
         yöneticipanelLayout.setHorizontalGroup(
@@ -124,7 +157,9 @@ public class girisekranı extends javax.swing.JFrame {
                 .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(yöneticipanelLayout.createSequentialGroup()
                         .addGap(80, 80, 80)
-                        .addComponent(yoneticititle, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(yoneticititle, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton6))
                     .addGroup(yöneticipanelLayout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -132,20 +167,27 @@ public class girisekranı extends javax.swing.JFrame {
                             .addComponent(yoneticibinano_jbl1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(yoneticibinano_jtf1)
-                            .addComponent(yoneticisifre_jtf1))))
-                .addGap(83, 83, 83))
-            .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(yöneticipanelLayout.createSequentialGroup()
-                    .addGap(102, 102, 102)
-                    .addComponent(yoneticigiris_btn1)
-                    .addContainerGap(103, Short.MAX_VALUE)))
+                            .addGroup(yöneticipanelLayout.createSequentialGroup()
+                                .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(yöneticigirispass, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                                    .addComponent(yoneticibinano_jtf1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1))
+                            .addGroup(yöneticipanelLayout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(yoneticigiris_btn1))))
+                    .addGroup(yöneticipanelLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(yön_gr_hata_lbli, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         yöneticipanelLayout.setVerticalGroup(
             yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(yöneticipanelLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(yoneticititle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(yoneticititle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6))
                 .addGap(37, 37, 37)
                 .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(yoneticibinano_jbl1)
@@ -153,16 +195,133 @@ public class girisekranı extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(yoneticisifrelbl)
-                    .addComponent(yoneticisifre_jtf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(238, Short.MAX_VALUE))
-            .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(yöneticipanelLayout.createSequentialGroup()
-                    .addGap(186, 186, 186)
-                    .addComponent(yoneticigiris_btn1)
-                    .addContainerGap(187, Short.MAX_VALUE)))
+                    .addComponent(yöneticigirispass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(yön_gr_hata_lbli)
+                .addGap(18, 18, 18)
+                .addComponent(yoneticigiris_btn1)
+                .addContainerGap(257, Short.MAX_VALUE))
         );
 
-        kullanicimain.add(yöneticipanel, "card2");
+        jPanel3.add(yöneticipanel, "card2");
+
+        jPanel1.setBackground(new java.awt.Color(255, 0, 204));
+        jPanel1.setForeground(new java.awt.Color(0, 255, 255));
+
+        kay_ekr_jlbl.setText("KAYIT OL");
+
+        yönetici_kaydi_lbl.setText("Yönetici Kaydı");
+
+        yoneticibinano_jlbl.setText("BİNA NO :");
+
+        yön_kay_dai_say_jlbl.setText("Daire Sayısı :");
+
+        yön_kay_şif_jlbl.setText("ŞİFRE :");
+
+        yön_kay_şiftek_jlbl.setText("Şifre Tekrarı :");
+
+        yön_kay_jbtn.setText("KAYIT OL");
+        yön_kay_jbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yön_kay_jbtnActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("göster");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Giriş Yap");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(kay_ekr_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton2)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(yön_kay_şiftek_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(yön_kay_şif_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(yön_kay_dai_say_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(yoneticibinano_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(yön_kay_jbtn)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                        .addComponent(yön_kay_dai_say_jtf, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(yoneticibinano_jtfk, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jPasswordField2)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)))
+                .addGap(10, 10, 10))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(yönetici_kaydi_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addGap(15, 15, 15))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(kay_ekr_jlbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(yönetici_kaydi_lbl)
+                    .addComponent(jButton8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(yoneticibinano_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yoneticibinano_jtfk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(yön_kay_dai_say_jlbl)
+                    .addComponent(yön_kay_dai_say_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(yön_kay_şif_jlbl)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(yön_kay_şiftek_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addGap(29, 29, 29)
+                .addComponent(yön_kay_jbtn)
+                .addContainerGap(185, Short.MAX_VALUE))
+        );
+
+        jPanel3.add(jPanel1, "card3");
+
+        kullanicimain.add(jPanel3, "card2");
+
+        jPanel4.setLayout(new java.awt.CardLayout());
+
+        kullanıcıpanel.setBackground(new java.awt.Color(0, 255, 255));
 
         title_jbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         title_jbl.setText("Kullanıcı Girişi");
@@ -182,6 +341,22 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("göster");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setText("Kayıt Ol");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        kul_gir_hata_lbli.setText(" ");
+
         javax.swing.GroupLayout kullanıcıpanelLayout = new javax.swing.GroupLayout(kullanıcıpanel);
         kullanıcıpanel.setLayout(kullanıcıpanelLayout);
         kullanıcıpanelLayout.setHorizontalGroup(
@@ -189,28 +364,36 @@ public class girisekranı extends javax.swing.JFrame {
             .addGroup(kullanıcıpanelLayout.createSequentialGroup()
                 .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kullanıcıpanelLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(kullanicidaireno_jbl)
-                            .addComponent(kullanicibinano_jbl))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kullanicigiris_btn)
-                            .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(daireno_cmb, 0, 96, Short.MAX_VALUE)
-                                .addComponent(binano_jtf)
-                                .addComponent(sifre_jtf))))
-                    .addGroup(kullanıcıpanelLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
-                        .addComponent(title_jbl, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                        .addComponent(title_jbl, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton7))
+                    .addGroup(kullanıcıpanelLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(kul_gir_hata_lbli, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(kullanıcıpanelLayout.createSequentialGroup()
+                                .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(kullanicidaireno_jbl)
+                                    .addComponent(kullanicibinano_jbl))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(kullanicigiris_btn)
+                                    .addComponent(daireno_cmb, 0, 96, Short.MAX_VALUE)
+                                    .addComponent(binano_jtf)
+                                    .addComponent(jPasswordField3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton4)))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         kullanıcıpanelLayout.setVerticalGroup(
             kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kullanıcıpanelLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(title_jbl, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(title_jbl, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7))
                 .addGap(34, 34, 34)
                 .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kullanicibinano_jbl)
@@ -222,101 +405,18 @@ public class girisekranı extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(sifre_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(kullanicigiris_btn)
-                .addContainerGap(140, Short.MAX_VALUE))
-        );
-
-        kullanicimain.add(kullanıcıpanel, "card3");
-
-        yoneticigiris.setLayout(new java.awt.CardLayout());
-
-        kay_ekr_jlbl.setText("KAYIT OL");
-
-        yönetici_kaydi_lbl.setText("Yönetici Kaydı");
-
-        yoneticibinano_jlbl.setText("BİNA NO :");
-
-        yön_kay_dai_say_jlbl.setText("Daire Sayısı :");
-
-        yön_kay_şif_jlbl.setText("ŞİFRE :");
-
-        yön_kay_şiftek_jlbl.setText("Şifre Tekrarı :");
-
-        yön_kay_jbtn.setText("KAYIT OL");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(kay_ekr_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(yön_kay_şif_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(yön_kay_dai_say_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(yoneticibinano_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(22, 22, 22))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(yön_kay_şiftek_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(yoneticibinano_jtfk)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(yön_kay_şiftek_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(yön_kay_dai_say_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(yön_kay_şif_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(13, 13, 13))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(yön_kay_jbtn))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(yönetici_kaydi_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(kay_ekr_jlbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(yönetici_kaydi_lbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(yoneticibinano_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(yoneticibinano_jtfk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(yön_kay_dai_say_jlbl))
-                    .addComponent(yön_kay_dai_say_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(yön_kay_şif_jlbl)
-                    .addComponent(yön_kay_şif_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(yön_kay_şiftek_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yön_kay_şiftek_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(yön_kay_jbtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(kul_gir_hata_lbli)
+                .addGap(22, 22, 22)
+                .addComponent(kullanicigiris_btn)
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
-        yoneticigiris.add(jPanel1, "card2");
+        jPanel4.add(kullanıcıpanel, "card2");
+
+        jPanel2.setBackground(new java.awt.Color(0, 255, 255));
 
         kay_ekr_kul_jlbl.setText("KAYIT OL");
 
@@ -332,9 +432,17 @@ public class girisekranı extends javax.swing.JFrame {
 
         kull_kay_jbtn.setText("KAYIT OL");
 
-        kull_kay_şif_jtf.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("göster");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kull_kay_şif_jtfActionPerformed(evt);
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Giriş yap");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
             }
         });
 
@@ -346,82 +454,89 @@ public class girisekranı extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(kull_binano_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(kull_kay_daireno_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(kull_kay_şif_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(kull_kay_şiftek_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kull_binano_jtfk, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(kull_daireno_jtfk, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(kull_kay_şif_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(kull_kay_şiftek_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton3)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(kull_binano_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(kull_kay_daireno_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(kull_kay_şif_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(kull_kay_şiftek_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jPasswordField5)
+                                    .addComponent(kull_binano_jtfk, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                    .addComponent(kull_daireno_jtfk)
+                                    .addComponent(jPasswordField4, javax.swing.GroupLayout.Alignment.TRAILING)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(kull_kay_jbtn))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kay_ekr_kul_jlbl)
-                            .addComponent(kullanıcı_kaydi_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(80, 80, 80)
+                        .addComponent(kull_kay_jbtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(kay_ekr_kul_jlbl)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(kullanıcı_kaydi_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                        .addComponent(jButton5)
+                        .addGap(23, 23, 23))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(13, 13, 13)
                 .addComponent(kay_ekr_kul_jlbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(kullanıcı_kaydi_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(kullanıcı_kaydi_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jButton5)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(kull_binano_jlbl)
-                                    .addComponent(kull_binano_jtfk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(kull_kay_daireno_jlbl))
-                            .addComponent(kull_daireno_jtfk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(kull_binano_jlbl)
+                            .addComponent(kull_binano_jtfk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(kull_kay_şif_jlbl))
-                    .addComponent(kull_kay_şif_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(kull_kay_daireno_jlbl))
+                    .addComponent(kull_daireno_jtfk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(kull_kay_şif_jlbl)
+                    .addComponent(jPasswordField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kull_kay_şiftek_jlbl)
-                    .addComponent(kull_kay_şiftek_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                    .addComponent(jPasswordField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addGap(18, 18, 18)
                 .addComponent(kull_kay_jbtn)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
-        yoneticigiris.add(jPanel2, "card3");
+        jPanel4.add(jPanel2, "card3");
+
+        kullanicimain.add(jPanel4, "card3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(kullanıcıgiris_btn1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(yoneticigirisi_btn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(93, 93, 93)
-                        .addComponent(mailpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(kullanicimain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(yoneticigiris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(kullanicimain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,20 +545,9 @@ public class girisekranı extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(yoneticigirisi_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(kullanıcıgiris_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(mailpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(kullanicimain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(yoneticigiris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(kullanicimain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         pack();
@@ -451,28 +555,79 @@ public class girisekranı extends javax.swing.JFrame {
 
     private void yoneticigirisi_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yoneticigirisi_btnActionPerformed
         CardLayout card = (CardLayout) kullanicimain.getLayout();
-        card.show(kullanicimain, "card2"); 
-        CardLayout card2 = (CardLayout) yoneticigiris.getLayout();
-        card2.show(yoneticigiris, "card2"); 
+        card.show(kullanicimain, "card2");
+        
     }//GEN-LAST:event_yoneticigirisi_btnActionPerformed
 
     private void kullanıcıgiris_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kullanıcıgiris_btn1ActionPerformed
         CardLayout card = (CardLayout) kullanicimain.getLayout();
-        card.show(kullanicimain, "card3"); 
-        CardLayout card2 = (CardLayout) yoneticigiris.getLayout();
-        card2.show(yoneticigiris, "card3"); 
+        card.show(kullanicimain, "card3");
+       
     }//GEN-LAST:event_kullanıcıgiris_btn1ActionPerformed
 
-    private void kull_kay_şif_jtfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kull_kay_şif_jtfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kull_kay_şif_jtfActionPerformed
-
     private void yoneticigiris_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yoneticigiris_btn1ActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new yöneticiekrani().setVisible(true);
+        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // JDBC Sürücüsünü yükle
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            // Bağlantıyı başlat
+            connection = DriverManager.getConnection(url);
+            System.out.println("Bağlantı başarılı!");
+
+            // Kullanıcıdan alınan veriler
+            String girilenKullaniciAdi = yoneticibinano_jtf1.getText(); // Kullanıcı adını UI'den çekiyoruz
+            String girilenSifre = yöneticigirispass.getText(); // Şifreyi UI'den çekiyoruz
+
+            // SQL'den kullanıcı adı ve şifreyi seçiyoruz
+            String selectSQL = "SELECT Bina_No, şifre FROM yötici_kayitlari_table WHERE Bina_No = ?";
+
+            preparedStatement = connection.prepareStatement(selectSQL);
+            preparedStatement.setString(1, girilenKullaniciAdi); // SQL'deki '?' yerine girilen kullanıcı adını koyuyoruz
+            resultSet = preparedStatement.executeQuery();
+
+            // Eğer sonuç varsa
+            if (resultSet.next()) {
+                String veritabanindakiSifre = resultSet.getString("şifre");
+
+                // Girilen şifreyle veritabanındaki şifreyi karşılaştırıyoruz
+                if (veritabanindakiSifre.equals(girilenSifre)) {
+                    System.out.println("Bina_No adı ve şifre doğru, işlem başarılı!");
+                    java.awt.EventQueue.invokeLater(new Runnable() {
+                        public void run() {
+                            new yöneticiekrani().setVisible(true);
+                        }
+                    });
+                    // Burada gerekli işlemleri yapabilirsiniz
+                } else {
+                    yön_gr_hata_lbli.setText("Bina no veya şifre yanlış");
+                }
+            } 
+
+        } catch (ClassNotFoundException e) {
+            System.err.println("SQL Server JDBC sürücüsü bulunamadı.");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        });
+        }
+
     }//GEN-LAST:event_yoneticigiris_btn1ActionPerformed
 
     private void kullanicigiris_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kullanicigiris_btnActionPerformed
@@ -482,6 +637,135 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_kullanicigiris_btnActionPerformed
+
+    private void yön_kay_jbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yön_kay_jbtnActionPerformed
+        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // JDBC Sürücüsünü yükle
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            // Bağlantıyı başlat
+            connection = DriverManager.getConnection(url);
+            System.out.println("Bağlantı başarılı!");
+
+            // Parametreli sorgu
+            String insertSQL = "INSERT INTO yötici_kayitlari_table (Bina_No, Daire_Sayısı,şifre) VALUES (?, ?, ?)";
+
+            // PreparedStatement oluştur
+            preparedStatement = connection.prepareStatement(insertSQL);
+
+            // Parametreleri ayarla (Örnek veriler: "değer1", 123)
+            preparedStatement.setString(1, yoneticibinano_jtfk.getText());
+            preparedStatement.setInt(2, Integer.parseInt(yön_kay_dai_say_jtf.getText()));
+            if (jPasswordField1.getText().equals(jPasswordField2.getText())) {
+                preparedStatement.setString(3, jPasswordField2.getText());
+            }
+
+            // Sorguyu çalıştır
+            int rowsInserted = preparedStatement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("Kayıt başarıyla eklendi!");
+            }
+
+        } catch (ClassNotFoundException e) {
+            // Sürücü yükleme hatası
+            System.err.println("SQL Server JDBC sürücüsü bulunamadı.");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // Bağlantı veya sorgu hatası
+            e.printStackTrace();
+        } finally {
+            // Kaynakları kapat
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_yön_kay_jbtnActionPerformed
+    private boolean isVisible = false;
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        if (isVisible) {
+            yöneticigirispass.setEchoChar((Character) UIManager.get("PasswordField.echoChar")); // Varsayılan gizleme karakterini geri yükle
+            jButton1.setText("Göster");
+        } else {
+            yöneticigirispass.setEchoChar((char) 0); // Şifreyi göster
+            jButton1.setText("Gizle");
+        }
+        isVisible = !isVisible;
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+    private boolean isVisible2 = false;
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (isVisible2) {
+            jPasswordField1.setEchoChar((Character) UIManager.get("PasswordField.echoChar")); // Varsayılan gizleme karakterini geri yükle
+            jPasswordField2.setEchoChar((Character) UIManager.get("PasswordField.echoChar")); // Varsayılan gizleme karakterini geri yükle
+            jButton2.setText("Göster");
+        } else {
+            jPasswordField1.setEchoChar((char) 0); // Şifreyi göster
+            jPasswordField2.setEchoChar((char) 0); // Şifreyi göster
+            jButton2.setText("Gizle");
+        }
+        isVisible2 = !isVisible2;
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+    private boolean isVisible3 = false;
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (isVisible3) {
+            jPasswordField3.setEchoChar((Character) UIManager.get("PasswordField.echoChar")); // Varsayılan gizleme karakterini geri yükle
+            jButton4.setText("Göster");
+        } else {
+            jPasswordField3.setEchoChar((char) 0); // Şifreyi göster
+            jButton4.setText("Gizle");
+        }
+        isVisible3 = !isVisible3;
+    }//GEN-LAST:event_jButton4ActionPerformed
+    private boolean isVisible4 = false;
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (isVisible4) {
+            jPasswordField4.setEchoChar((Character) UIManager.get("PasswordField.echoChar")); // Varsayılan gizleme karakterini geri yükle
+            jPasswordField5.setEchoChar((Character) UIManager.get("PasswordField.echoChar")); // Varsayılan gizleme karakterini geri yükle
+            jButton3.setText("Göster");
+        } else {
+            jPasswordField4.setEchoChar((char) 0); // Şifreyi göster
+            jPasswordField5.setEchoChar((char) 0); // Şifreyi göster
+            jButton3.setText("Gizle");
+        }
+        isVisible4 = !isVisible4;
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+         CardLayout card = (CardLayout) jPanel4.getLayout();
+         card.show(jPanel4, "card2");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        CardLayout card = (CardLayout) jPanel4.getLayout();
+        card.show(jPanel4, "card3");
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        CardLayout card = (CardLayout) jPanel3.getLayout();
+        card.show(jPanel3, "card2");
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        CardLayout card = (CardLayout) jPanel3.getLayout();
+        card.show(jPanel3, "card3");
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -521,22 +805,34 @@ public class girisekranı extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField binano_jtf;
     private javax.swing.JComboBox<String> daireno_cmb;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
+    private javax.swing.JPasswordField jPasswordField3;
+    private javax.swing.JPasswordField jPasswordField4;
+    private javax.swing.JPasswordField jPasswordField5;
     private javax.swing.JLabel kay_ekr_jlbl;
     private javax.swing.JLabel kay_ekr_kul_jlbl;
+    private javax.swing.JLabel kul_gir_hata_lbli;
     private javax.swing.JLabel kull_binano_jlbl;
     private javax.swing.JTextField kull_binano_jtfk;
     private javax.swing.JTextField kull_daireno_jtfk;
     private javax.swing.JLabel kull_kay_daireno_jlbl;
     private javax.swing.JButton kull_kay_jbtn;
     private javax.swing.JLabel kull_kay_şif_jlbl;
-    private javax.swing.JTextField kull_kay_şif_jtf;
     private javax.swing.JLabel kull_kay_şiftek_jlbl;
-    private javax.swing.JTextField kull_kay_şiftek_jtf;
     private javax.swing.JLabel kullanicibinano_jbl;
     private javax.swing.JLabel kullanicidaireno_jbl;
     private javax.swing.JButton kullanicigiris_btn;
@@ -544,27 +840,23 @@ public class girisekranı extends javax.swing.JFrame {
     private javax.swing.JLabel kullanıcı_kaydi_jlbl;
     private javax.swing.JButton kullanıcıgiris_btn1;
     private javax.swing.JPanel kullanıcıpanel;
-    private javax.swing.JPanel mailpanel;
-    private javax.swing.JTextField sifre_jtf;
     private javax.swing.JLabel title_jbl;
     private javax.swing.JLabel yoneticibinano_jbl1;
     private javax.swing.JLabel yoneticibinano_jlbl;
     private javax.swing.JTextField yoneticibinano_jtf1;
     private javax.swing.JTextField yoneticibinano_jtfk;
-    private javax.swing.JPanel yoneticigiris;
     private javax.swing.JButton yoneticigiris_btn1;
     private javax.swing.JButton yoneticigirisi_btn;
-    private javax.swing.JTextField yoneticisifre_jtf1;
     private javax.swing.JLabel yoneticisifrelbl;
     private javax.swing.JLabel yoneticititle;
+    private javax.swing.JLabel yön_gr_hata_lbli;
     private javax.swing.JLabel yön_kay_dai_say_jlbl;
     private javax.swing.JTextField yön_kay_dai_say_jtf;
     private javax.swing.JButton yön_kay_jbtn;
     private javax.swing.JLabel yön_kay_şif_jlbl;
-    private javax.swing.JTextField yön_kay_şif_jtf;
     private javax.swing.JLabel yön_kay_şiftek_jlbl;
-    private javax.swing.JTextField yön_kay_şiftek_jtf;
     private javax.swing.JLabel yönetici_kaydi_lbl;
+    private javax.swing.JPasswordField yöneticigirispass;
     private javax.swing.JPanel yöneticipanel;
     // End of variables declaration//GEN-END:variables
 }
