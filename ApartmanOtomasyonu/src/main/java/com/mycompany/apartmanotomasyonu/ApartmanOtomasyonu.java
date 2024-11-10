@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class ApartmanOtomasyonu {
 
 
@@ -16,7 +15,7 @@ public class ApartmanOtomasyonu {
         
         
         // Bağlantı bilgilerigre
-        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
+        String url = "jdbc:sqlserver://DESKTOP-BT77ME7;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;

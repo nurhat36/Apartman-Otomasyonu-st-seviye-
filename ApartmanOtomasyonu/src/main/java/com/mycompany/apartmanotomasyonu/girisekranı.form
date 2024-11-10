@@ -226,6 +226,12 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="y&#xf6;n_gr_hata_lbli">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                 </Component>
@@ -528,6 +534,9 @@
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="daireno_cmbActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -604,8 +613,8 @@
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="jPasswordField5" max="32767" attributes="0"/>
                                               <Component id="kull_binano_jtfk" alignment="0" pref="104" max="32767" attributes="0"/>
-                                              <Component id="kull_daireno_jtfk" alignment="0" max="32767" attributes="0"/>
                                               <Component id="jPasswordField4" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -651,15 +660,13 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="kull_binano_jlbl" min="-2" max="-2" attributes="0"/>
-                                      <Component id="kull_binano_jtfk" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="kull_kay_daireno_jlbl" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="kull_daireno_jtfk" min="-2" max="-2" attributes="0"/>
+                              <Component id="kull_binano_jlbl" min="-2" max="-2" attributes="0"/>
+                              <Component id="kull_binano_jtfk" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="kull_kay_daireno_jlbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -675,7 +682,7 @@
                           <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="kull_kay_jbtn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="198" max="32767" attributes="0"/>
+                          <EmptySpace pref="192" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -715,14 +722,24 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="KAYIT OL"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kull_kay_jbtnActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="kull_binano_jtfk">
-                </Component>
-                <Component class="javax.swing.JTextField" name="kull_daireno_jtfk">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kull_binano_jtfkActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JPasswordField" name="jPasswordField4">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordField4ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JPasswordField" name="jPasswordField5">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordField5ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton3">
                   <Properties>
@@ -739,6 +756,24 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBox1">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="Item 1"/>
+                        <StringItem index="1" value="Item 2"/>
+                        <StringItem index="2" value="Item 3"/>
+                        <StringItem index="3" value="Item 4"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
