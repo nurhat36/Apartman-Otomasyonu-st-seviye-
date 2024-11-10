@@ -479,6 +479,29 @@ public class girisekranı extends javax.swing.JFrame {
         kull_kay_şiftek_jlbl.setText("Şifre Tekrarı :");
 
         kull_kay_jbtn.setText("KAYIT OL");
+        kull_kay_jbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kull_kay_jbtnActionPerformed(evt);
+            }
+        });
+
+        kull_binano_jtfk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kull_binano_jtfkActionPerformed(evt);
+            }
+        });
+
+        jPasswordField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField4ActionPerformed(evt);
+            }
+        });
+
+        jPasswordField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField5ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("göster");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -495,6 +518,11 @@ public class girisekranı extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -615,7 +643,7 @@ public class girisekranı extends javax.swing.JFrame {
     }//GEN-LAST:event_kullanıcıgiris_btn1ActionPerformed
 
     private void yoneticigiris_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yoneticigiris_btn1ActionPerformed
-        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
+        String url = "jdbc:sqlserver://DESKTOP-BT77ME7;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -690,7 +718,7 @@ public class girisekranı extends javax.swing.JFrame {
     }//GEN-LAST:event_kullanicigiris_btnActionPerformed
 
     private void yön_kay_jbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yön_kay_jbtnActionPerformed
-        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
+        String url = "jdbc:sqlserver://DESKTOP-BT77ME7;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -829,7 +857,7 @@ public class girisekranı extends javax.swing.JFrame {
         }
 
         // SQL bağlantı bilgileri
-        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True"; // veritabanı bağlantı URL'i
+        String url = "jdbc:sqlserver://DESKTOP-BT77ME7;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True"; // veritabanı bağlantı URL'i
 
         try (Connection conn = DriverManager.getConnection(url)) {
             String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
@@ -869,7 +897,7 @@ public class girisekranı extends javax.swing.JFrame {
         }
 
         // SQL bağlantı bilgileri
-        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True"; // veritabanı bağlantı URL'i
+        String url = "jdbc:sqlserver://DESKTOP-BT77ME7;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True"; // veritabanı bağlantı URL'i
 
         try (Connection conn = DriverManager.getConnection(url)) {
             String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
@@ -901,6 +929,89 @@ public class girisekranı extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_daireno_cmbActionPerformed
+
+    private void kull_kay_jbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kull_kay_jbtnActionPerformed
+        String url = "jdbc:sqlserver://DESKTOP-BT77ME7;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // JDBC Sürücüsünü yükle
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            // Bağlantıyı başlat
+            connection = DriverManager.getConnection(url);
+            System.out.println("Bağlantı başarılı!");
+
+            // Parametreli sorgu
+            String insertSQL = "INSERT INTO kullaniciler_table (bina_no,daire_no,şifre) VALUES (?, ?, ?)";
+
+            // PreparedStatement oluştur
+            preparedStatement = connection.prepareStatement(insertSQL);
+
+            // Parametreleri ayarla (Örnek veriler: "değer1", 123)
+            preparedStatement.setString(1, kull_binano_jtfk.getText());
+            String secilenVeri = (String) jComboBox1.getSelectedItem();
+
+            // ":" karakterinin konumunu bulup sonrasını alıyoruz
+            int index = secilenVeri.indexOf(": ");
+            String daireNoStr = secilenVeri.substring(index + 2); // ": " karakterinden sonrası
+
+            // Daire numarasını int'e çeviriyoruz
+            int daireNo = Integer.parseInt(daireNoStr);
+
+            System.out.println("Daire No: " + daireNo);
+
+            if (jPasswordField4.getText().equals(jPasswordField5.getText())) {
+                preparedStatement.setString(3, jPasswordField5.getText());
+            }
+
+            // Sorguyu çalıştır
+            int rowsInserted = preparedStatement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("Kayıt başarıyla eklendi!");
+            }
+
+        } catch (ClassNotFoundException e) {
+            // Sürücü yükleme hatası
+            System.err.println("SQL Server JDBC sürücüsü bulunamadı.");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // Bağlantı veya sorgu hatası
+            e.printStackTrace();
+        } finally {
+            // Kaynakları kapat
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } 
+    }//GEN-LAST:event_kull_kay_jbtnActionPerformed
+
+    private void kull_binano_jtfkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kull_binano_jtfkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kull_binano_jtfkActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jPasswordField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField4ActionPerformed
+
+    private void jPasswordField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField5ActionPerformed
 
     /**
      * @param args the command line arguments
