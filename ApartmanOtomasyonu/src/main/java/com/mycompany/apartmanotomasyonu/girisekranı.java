@@ -32,16 +32,38 @@ public class girisekranı extends javax.swing.JFrame {
             @Override
             public void insertUpdate(DocumentEvent e) {
                 cmbdolur();
+                
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
                 cmbdolur();
+                
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
                 cmbdolur();
+                
+            }
+        });
+        kull_binano_jtfk.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                
+                cmbdolurkayıt();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                
+                cmbdolurkayıt();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                
+                cmbdolurkayıt();
             }
         });
     }
@@ -105,11 +127,11 @@ public class girisekranı extends javax.swing.JFrame {
         kull_kay_şiftek_jlbl = new javax.swing.JLabel();
         kull_kay_jbtn = new javax.swing.JButton();
         kull_binano_jtfk = new javax.swing.JTextField();
-        kull_daireno_jtfk = new javax.swing.JTextField();
         jPasswordField4 = new javax.swing.JPasswordField();
         jPasswordField5 = new javax.swing.JPasswordField();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GİRİŞ YAP");
@@ -472,6 +494,8 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -492,8 +516,8 @@ public class girisekranı extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jPasswordField5)
                                     .addComponent(kull_binano_jtfk, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                                    .addComponent(kull_daireno_jtfk)
-                                    .addComponent(jPasswordField4, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                                    .addComponent(jPasswordField4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addComponent(kull_kay_jbtn)))
@@ -524,13 +548,12 @@ public class girisekranı extends javax.swing.JFrame {
                         .addComponent(jButton5)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(kull_binano_jlbl)
-                            .addComponent(kull_binano_jtfk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(kull_kay_daireno_jlbl))
-                    .addComponent(kull_daireno_jtfk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kull_binano_jlbl)
+                    .addComponent(kull_binano_jtfk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(kull_kay_daireno_jlbl)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kull_kay_şif_jlbl)
@@ -543,7 +566,7 @@ public class girisekranı extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
                 .addComponent(kull_kay_jbtn)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         jPanel4.add(jPanel2, "card3");
@@ -834,6 +857,46 @@ public class girisekranı extends javax.swing.JFrame {
             // Hata mesajı gösterme, sadece çıktı alabiliriz ya da işlemi sessizce bitirebiliriz
         }
     }
+    private void cmbdolurkayıt() {
+        // Öncelikle girilen bina numarasını alalım
+        String binaNumarasiStr = kull_binano_jtfk.getText(); // Bu, bina numarasının girildiği TextField olabilir
+        int binaNumarasi;
+        try {
+            binaNumarasi = Integer.parseInt(binaNumarasiStr);
+        } catch (NumberFormatException e) {
+            daireno_cmb.removeAllItems(); // Geçersiz giriş durumunda ComboBox'u temizleyin
+            return;  // Eğer geçerli bir sayı girilmemişse işlemi durdur
+        }
+
+        // SQL bağlantı bilgileri
+        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True"; // veritabanı bağlantı URL'i
+
+        try (Connection conn = DriverManager.getConnection(url)) {
+            String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, binaNumarasi);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            // ComboBox'ı temizleyelim
+            jComboBox1.removeAllItems();
+
+            if (rs.next()) {
+                int daireSayisi = rs.getInt("Daire_Sayısı");
+
+                // Şimdi daire numaralarını ComboBox'a ekleyelim
+                for (int i = 1; i <= daireSayisi; i++) {
+                    jComboBox1.addItem("Daire No: " + i);
+                }
+            } else {
+                jComboBox1.removeAllItems(); // Kayıt bulunmazsa ComboBox'u temizleyin
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Hata mesajı gösterme, sadece çıktı alabiliriz ya da işlemi sessizce bitirebiliriz
+        }
+    }
     private void daireno_cmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daireno_cmbActionPerformed
 
 
@@ -893,6 +956,7 @@ public class girisekranı extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -908,7 +972,6 @@ public class girisekranı extends javax.swing.JFrame {
     private javax.swing.JLabel kul_gir_hata_lbli;
     private javax.swing.JLabel kull_binano_jlbl;
     private javax.swing.JTextField kull_binano_jtfk;
-    private javax.swing.JTextField kull_daireno_jtfk;
     private javax.swing.JLabel kull_kay_daireno_jlbl;
     private javax.swing.JButton kull_kay_jbtn;
     private javax.swing.JLabel kull_kay_şif_jlbl;
