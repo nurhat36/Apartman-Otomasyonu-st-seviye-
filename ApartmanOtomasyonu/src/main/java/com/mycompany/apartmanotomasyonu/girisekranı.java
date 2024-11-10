@@ -11,7 +11,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -25,6 +28,22 @@ public class girisekranı extends javax.swing.JFrame {
     public girisekranı() {
         initComponents();
         setLocationRelativeTo(null);
+        binano_jtf.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                cmbdolur();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                cmbdolur();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                cmbdolur();
+            }
+        });
     }
 
     /**
@@ -147,6 +166,8 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
 
+        yön_gr_hata_lbli.setBackground(new java.awt.Color(255, 0, 0));
+        yön_gr_hata_lbli.setForeground(new java.awt.Color(255, 0, 0));
         yön_gr_hata_lbli.setText(" ");
 
         javax.swing.GroupLayout yöneticipanelLayout = new javax.swing.GroupLayout(yöneticipanel);
@@ -331,6 +352,11 @@ public class girisekranı extends javax.swing.JFrame {
         kullanicidaireno_jbl.setText("DAİRE NO :");
 
         daireno_cmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        daireno_cmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                daireno_cmbActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("ŞİFRE :");
 
@@ -556,13 +582,13 @@ public class girisekranı extends javax.swing.JFrame {
     private void yoneticigirisi_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yoneticigirisi_btnActionPerformed
         CardLayout card = (CardLayout) kullanicimain.getLayout();
         card.show(kullanicimain, "card2");
-        
+
     }//GEN-LAST:event_yoneticigirisi_btnActionPerformed
 
     private void kullanıcıgiris_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kullanıcıgiris_btn1ActionPerformed
         CardLayout card = (CardLayout) kullanicimain.getLayout();
         card.show(kullanicimain, "card3");
-       
+
     }//GEN-LAST:event_kullanıcıgiris_btn1ActionPerformed
 
     private void yoneticigiris_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yoneticigiris_btn1ActionPerformed
@@ -603,9 +629,11 @@ public class girisekranı extends javax.swing.JFrame {
                     });
                     // Burada gerekli işlemleri yapabilirsiniz
                 } else {
-                    yön_gr_hata_lbli.setText("Bina no veya şifre yanlış");
+                    yön_gr_hata_lbli.setText("Bina no ve/veya şifre yanlış");
                 }
-            } 
+            } else {
+                yön_gr_hata_lbli.setText("Bina no ve/veya şifre yanlış");
+            }
 
         } catch (ClassNotFoundException e) {
             System.err.println("SQL Server JDBC sürücüsü bulunamadı.");
@@ -748,8 +776,8 @@ public class girisekranı extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         CardLayout card = (CardLayout) jPanel4.getLayout();
-         card.show(jPanel4, "card2");
+        CardLayout card = (CardLayout) jPanel4.getLayout();
+        card.show(jPanel4, "card2");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -766,6 +794,50 @@ public class girisekranı extends javax.swing.JFrame {
         CardLayout card = (CardLayout) jPanel3.getLayout();
         card.show(jPanel3, "card3");
     }//GEN-LAST:event_jButton6ActionPerformed
+    private void cmbdolur() {
+        // Öncelikle girilen bina numarasını alalım
+        String binaNumarasiStr = binano_jtf.getText(); // Bu, bina numarasının girildiği TextField olabilir
+        int binaNumarasi;
+        try {
+            binaNumarasi = Integer.parseInt(binaNumarasiStr);
+        } catch (NumberFormatException e) {
+            daireno_cmb.removeAllItems(); // Geçersiz giriş durumunda ComboBox'u temizleyin
+            return;  // Eğer geçerli bir sayı girilmemişse işlemi durdur
+        }
+
+        // SQL bağlantı bilgileri
+        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True"; // veritabanı bağlantı URL'i
+
+        try (Connection conn = DriverManager.getConnection(url)) {
+            String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, binaNumarasi);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            // ComboBox'ı temizleyelim
+            daireno_cmb.removeAllItems();
+
+            if (rs.next()) {
+                int daireSayisi = rs.getInt("Daire_Sayısı");
+
+                // Şimdi daire numaralarını ComboBox'a ekleyelim
+                for (int i = 1; i <= daireSayisi; i++) {
+                    daireno_cmb.addItem("Daire No: " + i);
+                }
+            } else {
+                daireno_cmb.removeAllItems(); // Kayıt bulunmazsa ComboBox'u temizleyin
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Hata mesajı gösterme, sadece çıktı alabiliriz ya da işlemi sessizce bitirebiliriz
+        }
+    }
+    private void daireno_cmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daireno_cmbActionPerformed
+
+
+    }//GEN-LAST:event_daireno_cmbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -781,16 +853,24 @@ public class girisekranı extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(girisekranı.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(girisekranı.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(girisekranı.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(girisekranı.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(girisekranı.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(girisekranı.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(girisekranı.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(girisekranı.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
