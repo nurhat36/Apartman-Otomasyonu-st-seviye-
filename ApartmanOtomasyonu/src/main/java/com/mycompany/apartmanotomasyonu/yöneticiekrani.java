@@ -10,6 +10,8 @@ import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -23,6 +25,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
     public yöneticiekrani() {
         initComponents();
         setLocationRelativeTo(null);
+        setInitialDate();
     }
 
     /**
@@ -540,7 +543,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void gelirtarihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gelirtarihActionPerformed
-        // TODO add your handling code here:
+       setInitialDate();
     }//GEN-LAST:event_gelirtarihActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -607,9 +610,14 @@ public class yöneticiekrani extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     private void gidertarih_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gidertarih_tfActionPerformed
-        // TODO add your handling code here:
+        setInitialDate();
     }//GEN-LAST:event_gidertarih_tfActionPerformed
-
+    private void setInitialDate() {
+        LocalDate tarih = LocalDate.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        gidertarih_tf.setText(tarih.format(format));
+        gelirtarih.setText(tarih.format(format));
+    }
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if (jCheckBox1.isSelected()) {
             jCheckBox2.setSelected(false);
@@ -677,22 +685,17 @@ public class yöneticiekrani extends javax.swing.JFrame {
     private void dekontyukleme_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dekontyukleme_btnActionPerformed
         JFileChooser fileChooser = new JFileChooser();
 
-        
         fileChooser.setCurrentDirectory(new File("C:/path/to/Resimler"));
 
-        
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
-        
         int result = fileChooser.showOpenDialog(null);
 
-       
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             String filePath = selectedFile.getAbsolutePath();
             System.out.println("Seçilen Dosya: " + filePath);
 
-            
             ImageIcon imageIcon = new ImageIcon(filePath);
             Image image = imageIcon.getImage(); // ImageIcon'dan Image al
             Image scaledImage = image.getScaledInstance(400, 300, Image.SCALE_SMOOTH); // Yeniden boyutlandır

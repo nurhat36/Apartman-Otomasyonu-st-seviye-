@@ -11,7 +11,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -25,6 +28,22 @@ public class girisekranı extends javax.swing.JFrame {
     public girisekranı() {
         initComponents();
         setLocationRelativeTo(null);
+        binano_jtf.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                cmbdolur();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                cmbdolur();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                cmbdolur();
+            }
+        });
     }
 
     /**
@@ -49,6 +68,7 @@ public class girisekranı extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         yöneticigirispass = new javax.swing.JPasswordField();
         jButton6 = new javax.swing.JButton();
+        yön_gr_hata_lbli = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         kay_ekr_jlbl = new javax.swing.JLabel();
         yönetici_kaydi_lbl = new javax.swing.JLabel();
@@ -75,6 +95,7 @@ public class girisekranı extends javax.swing.JFrame {
         jPasswordField3 = new javax.swing.JPasswordField();
         jButton4 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        kul_gir_hata_lbli = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         kay_ekr_kul_jlbl = new javax.swing.JLabel();
         kullanıcı_kaydi_jlbl = new javax.swing.JLabel();
@@ -145,31 +166,40 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
 
+        yön_gr_hata_lbli.setBackground(new java.awt.Color(255, 0, 0));
+        yön_gr_hata_lbli.setForeground(new java.awt.Color(255, 0, 0));
+        yön_gr_hata_lbli.setText(" ");
+
         javax.swing.GroupLayout yöneticipanelLayout = new javax.swing.GroupLayout(yöneticipanel);
         yöneticipanel.setLayout(yöneticipanelLayout);
         yöneticipanelLayout.setHorizontalGroup(
             yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, yöneticipanelLayout.createSequentialGroup()
-                .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, yöneticipanelLayout.createSequentialGroup()
+            .addGroup(yöneticipanelLayout.createSequentialGroup()
+                .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(yöneticipanelLayout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addComponent(yoneticititle, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton6))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, yöneticipanelLayout.createSequentialGroup()
+                    .addGroup(yöneticipanelLayout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(yoneticisifrelbl)
                             .addComponent(yoneticibinano_jbl1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(yöneticipanelLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(yoneticigiris_btn1))
-                            .addComponent(yöneticigirispass, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                            .addComponent(yoneticibinano_jtf1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                                .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(yöneticigirispass, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                                    .addComponent(yoneticibinano_jtf1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1))
+                            .addGroup(yöneticipanelLayout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(yoneticigiris_btn1))))
+                    .addGroup(yöneticipanelLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(yön_gr_hata_lbli, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         yöneticipanelLayout.setVerticalGroup(
@@ -188,9 +218,11 @@ public class girisekranı extends javax.swing.JFrame {
                     .addComponent(yoneticisifrelbl)
                     .addComponent(yöneticigirispass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(yön_gr_hata_lbli)
+                .addGap(18, 18, 18)
                 .addComponent(yoneticigiris_btn1)
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addContainerGap(257, Short.MAX_VALUE))
         );
 
         jPanel3.add(yöneticipanel, "card2");
@@ -320,6 +352,11 @@ public class girisekranı extends javax.swing.JFrame {
         kullanicidaireno_jbl.setText("DAİRE NO :");
 
         daireno_cmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        daireno_cmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                daireno_cmbActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("ŞİFRE :");
 
@@ -344,6 +381,8 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
 
+        kul_gir_hata_lbli.setText(" ");
+
         javax.swing.GroupLayout kullanıcıpanelLayout = new javax.swing.GroupLayout(kullanıcıpanel);
         kullanıcıpanel.setLayout(kullanıcıpanelLayout);
         kullanıcıpanelLayout.setHorizontalGroup(
@@ -351,24 +390,27 @@ public class girisekranı extends javax.swing.JFrame {
             .addGroup(kullanıcıpanelLayout.createSequentialGroup()
                 .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kullanıcıpanelLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(kullanicidaireno_jbl)
-                            .addComponent(kullanicibinano_jbl))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(kullanicigiris_btn)
-                            .addComponent(daireno_cmb, 0, 96, Short.MAX_VALUE)
-                            .addComponent(binano_jtf)
-                            .addComponent(jPasswordField3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4))
-                    .addGroup(kullanıcıpanelLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(title_jbl, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton7)))
+                        .addComponent(jButton7))
+                    .addGroup(kullanıcıpanelLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(kul_gir_hata_lbli, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(kullanıcıpanelLayout.createSequentialGroup()
+                                .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(kullanicidaireno_jbl)
+                                    .addComponent(kullanicibinano_jbl))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(kullanicigiris_btn)
+                                    .addComponent(daireno_cmb, 0, 96, Short.MAX_VALUE)
+                                    .addComponent(binano_jtf)
+                                    .addComponent(jPasswordField3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton4)))))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         kullanıcıpanelLayout.setVerticalGroup(
@@ -391,9 +433,11 @@ public class girisekranı extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4))
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
+                .addComponent(kul_gir_hata_lbli)
+                .addGap(22, 22, 22)
                 .addComponent(kullanicigiris_btn)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
         jPanel4.add(kullanıcıpanel, "card2");
@@ -538,13 +582,13 @@ public class girisekranı extends javax.swing.JFrame {
     private void yoneticigirisi_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yoneticigirisi_btnActionPerformed
         CardLayout card = (CardLayout) kullanicimain.getLayout();
         card.show(kullanicimain, "card2");
-        
+
     }//GEN-LAST:event_yoneticigirisi_btnActionPerformed
 
     private void kullanıcıgiris_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kullanıcıgiris_btn1ActionPerformed
         CardLayout card = (CardLayout) kullanicimain.getLayout();
         card.show(kullanicimain, "card3");
-       
+
     }//GEN-LAST:event_kullanıcıgiris_btn1ActionPerformed
 
     private void yoneticigiris_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yoneticigiris_btn1ActionPerformed
@@ -585,10 +629,10 @@ public class girisekranı extends javax.swing.JFrame {
                     });
                     // Burada gerekli işlemleri yapabilirsiniz
                 } else {
-                    System.out.println("Şifre yanlış.");
+                    yön_gr_hata_lbli.setText("Bina no ve/veya şifre yanlış");
                 }
             } else {
-                System.out.println("Kullanıcı adı bulunamadı.");
+                yön_gr_hata_lbli.setText("Bina no ve/veya şifre yanlış");
             }
 
         } catch (ClassNotFoundException e) {
@@ -732,8 +776,8 @@ public class girisekranı extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         CardLayout card = (CardLayout) jPanel4.getLayout();
-         card.show(jPanel4, "card2");
+        CardLayout card = (CardLayout) jPanel4.getLayout();
+        card.show(jPanel4, "card2");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -750,6 +794,50 @@ public class girisekranı extends javax.swing.JFrame {
         CardLayout card = (CardLayout) jPanel3.getLayout();
         card.show(jPanel3, "card3");
     }//GEN-LAST:event_jButton6ActionPerformed
+    private void cmbdolur() {
+        // Öncelikle girilen bina numarasını alalım
+        String binaNumarasiStr = binano_jtf.getText(); // Bu, bina numarasının girildiği TextField olabilir
+        int binaNumarasi;
+        try {
+            binaNumarasi = Integer.parseInt(binaNumarasiStr);
+        } catch (NumberFormatException e) {
+            daireno_cmb.removeAllItems(); // Geçersiz giriş durumunda ComboBox'u temizleyin
+            return;  // Eğer geçerli bir sayı girilmemişse işlemi durdur
+        }
+
+        // SQL bağlantı bilgileri
+        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True"; // veritabanı bağlantı URL'i
+
+        try (Connection conn = DriverManager.getConnection(url)) {
+            String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, binaNumarasi);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            // ComboBox'ı temizleyelim
+            daireno_cmb.removeAllItems();
+
+            if (rs.next()) {
+                int daireSayisi = rs.getInt("Daire_Sayısı");
+
+                // Şimdi daire numaralarını ComboBox'a ekleyelim
+                for (int i = 1; i <= daireSayisi; i++) {
+                    daireno_cmb.addItem("Daire No: " + i);
+                }
+            } else {
+                daireno_cmb.removeAllItems(); // Kayıt bulunmazsa ComboBox'u temizleyin
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Hata mesajı gösterme, sadece çıktı alabiliriz ya da işlemi sessizce bitirebiliriz
+        }
+    }
+    private void daireno_cmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daireno_cmbActionPerformed
+
+
+    }//GEN-LAST:event_daireno_cmbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -765,16 +853,24 @@ public class girisekranı extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(girisekranı.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(girisekranı.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(girisekranı.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(girisekranı.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(girisekranı.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(girisekranı.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(girisekranı.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(girisekranı.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -809,6 +905,7 @@ public class girisekranı extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField5;
     private javax.swing.JLabel kay_ekr_jlbl;
     private javax.swing.JLabel kay_ekr_kul_jlbl;
+    private javax.swing.JLabel kul_gir_hata_lbli;
     private javax.swing.JLabel kull_binano_jlbl;
     private javax.swing.JTextField kull_binano_jtfk;
     private javax.swing.JTextField kull_daireno_jtfk;
@@ -832,6 +929,7 @@ public class girisekranı extends javax.swing.JFrame {
     private javax.swing.JButton yoneticigirisi_btn;
     private javax.swing.JLabel yoneticisifrelbl;
     private javax.swing.JLabel yoneticititle;
+    private javax.swing.JLabel yön_gr_hata_lbli;
     private javax.swing.JLabel yön_kay_dai_say_jlbl;
     private javax.swing.JTextField yön_kay_dai_say_jtf;
     private javax.swing.JButton yön_kay_jbtn;
