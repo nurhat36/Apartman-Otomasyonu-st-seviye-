@@ -10,6 +10,8 @@ public class ApartmanOtomasyonu {
 
 
     public static void main(String[] args) {
+<<<<<<< HEAD
+=======
        
         
         
@@ -48,6 +50,7 @@ public class ApartmanOtomasyonu {
                 e.printStackTrace();
             }
         }
+>>>>>>> 79042868a5963f99dd55dd82fbcee2069c4b2bd4
            // Formu başlat
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
