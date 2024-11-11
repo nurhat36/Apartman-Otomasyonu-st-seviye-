@@ -617,7 +617,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
 
         String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
         daireno_cmb.removeAllItems();
-        try (ResultSet rs = dbhelper.executeQuery(sql, 3)) {
+        try (ResultSet rs = dbhelper.executeQuery(sql, girisekranı.bina_no)) {
 
             if (rs.next()) {
                 int daireSayisi = rs.getInt("Daire_Sayısı");
