@@ -915,28 +915,13 @@ public class girisekranı extends javax.swing.JFrame {
         card.show(jPanel3, "card3");
     }//GEN-LAST:event_jButton6ActionPerformed
     private void cmbdolur() {
-        // Öncelikle girilen bina numarasını alalım
-        String binaNumarasiStr = binano_jtf.getText(); // Bu, bina numarasının girildiği TextField olabilir
-        int binaNumarasi;
-        try {
-            binaNumarasi = Integer.parseInt(binaNumarasiStr);
-        } catch (NumberFormatException e) {
-            daireno_cmb.removeAllItems(); // Geçersiz giriş durumunda ComboBox'u temizleyin
-            return;  // Eğer geçerli bir sayı girilmemişse işlemi durdur
-        }
 
         // SQL bağlantı bilgileri
-        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True"; // veritabanı bağlantı URL'i
+        SQLHelper dbhelper = new SQLHelper();
 
-        try (Connection conn = DriverManager.getConnection(url)) {
-            String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, binaNumarasi);
-
-            ResultSet rs = pstmt.executeQuery();
-
-            // ComboBox'ı temizleyelim
-            daireno_cmb.removeAllItems();
+        String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
+        daireno_cmb.removeAllItems();
+        try (ResultSet rs = dbhelper.executeQuery(sql, binano_jtf.getText())) {
 
             if (rs.next()) {
                 int daireSayisi = rs.getInt("Daire_Sayısı");
@@ -948,36 +933,20 @@ public class girisekranı extends javax.swing.JFrame {
             } else {
                 daireno_cmb.removeAllItems(); // Kayıt bulunmazsa ComboBox'u temizleyin
             }
-
         } catch (SQLException e) {
-            e.printStackTrace();
-            // Hata mesajı gösterme, sadece çıktı alabiliriz ya da işlemi sessizce bitirebiliriz
+            System.err.println("Veri çekme hatası: " + e.getMessage());
         }
+
     }
 
     private void cmbdolurkayıt() {
-        // Öncelikle girilen bina numarasını alalım
-        String binaNumarasiStr = kull_binano_jtfk.getText(); // Bu, bina numarasının girildiği TextField olabilir
-        int binaNumarasi;
-        try {
-            binaNumarasi = Integer.parseInt(binaNumarasiStr);
-        } catch (NumberFormatException e) {
-            daireno_cmb.removeAllItems(); // Geçersiz giriş durumunda ComboBox'u temizleyin
-            return;  // Eğer geçerli bir sayı girilmemişse işlemi durdur
-        }
 
         // SQL bağlantı bilgileri
-        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True"; // veritabanı bağlantı URL'i
+        SQLHelper dbhelper = new SQLHelper();
 
-        try (Connection conn = DriverManager.getConnection(url)) {
-            String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, binaNumarasi);
-
-            ResultSet rs = pstmt.executeQuery();
-
-            // ComboBox'ı temizleyelim
-            jComboBox1.removeAllItems();
+        String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
+        jComboBox1.removeAllItems();
+        try (ResultSet rs = dbhelper.executeQuery(sql, kull_binano_jtfk.getText())) {
 
             if (rs.next()) {
                 int daireSayisi = rs.getInt("Daire_Sayısı");
@@ -989,11 +958,10 @@ public class girisekranı extends javax.swing.JFrame {
             } else {
                 jComboBox1.removeAllItems(); // Kayıt bulunmazsa ComboBox'u temizleyin
             }
-
         } catch (SQLException e) {
-            e.printStackTrace();
-            // Hata mesajı gösterme, sadece çıktı alabiliriz ya da işlemi sessizce bitirebiliriz
+            System.err.println("Veri çekme hatası: " + e.getMessage());
         }
+
     }
     private void daireno_cmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daireno_cmbActionPerformed
 
