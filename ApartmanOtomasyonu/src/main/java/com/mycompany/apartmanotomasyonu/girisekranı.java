@@ -1001,82 +1001,46 @@ public class girisekranı extends javax.swing.JFrame {
     }//GEN-LAST:event_daireno_cmbActionPerformed
 
     private void kull_kay_jbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kull_kay_jbtnActionPerformed
-        String url = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        SQLHelper sql = new SQLHelper();
 
-        try {
-            // JDBC Sürücüsünü yükle
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-
-            // Bağlantıyı başlat
-            connection = DriverManager.getConnection(url);
-            System.out.println("Bağlantı başarılı!");
-
-            // Parametreli sorgu (önce kayıt var mı kontrol et)
-            String checkSQL = "SELECT COUNT(*) FROM kullaniciler_table WHERE bina_no = ? AND daire_no = ?";
-
-            // Kayıt var mı kontrol et
-            preparedStatement = connection.prepareStatement(checkSQL);
-            preparedStatement.setString(1, kull_binano_jtfk.getText());  // Bina No
-            String secilenVeri = (String) jComboBox1.getSelectedItem();
-            int index = secilenVeri.indexOf(": ");
-            String daireNoStr = secilenVeri.substring(index + 2); // ": " karakterinden sonrası
-            preparedStatement.setString(2, daireNoStr);  // Daire No
-
-            resultSet = preparedStatement.executeQuery();
-
-            if (resultSet.next()) {
-                int count = resultSet.getInt(1);
+        // Parametreli sorgu (önce kayıt var mı kontrol et)
+        String checkSQL = "SELECT COUNT(*) FROM kullaniciler_table WHERE bina_no = ? AND daire_no = ?";
+        String secilenVeri = (String) jComboBox1.getSelectedItem();
+        int index = secilenVeri.indexOf(": ");
+        String daireNoStr = secilenVeri.substring(index + 2); // ": " karakterinden sonrası
+        try (ResultSet rs = sql.executeQuery(checkSQL, kull_binano_jtfk.getText(), daireNoStr)) {
+            while (rs != null && rs.next()) {
+                int count = rs.getInt(1);
                 if (count > 0) {
                     // Eğer kayıt varsa, hata mesajı
                     jLabel2.setText("Bu bina no ve daire no için zaten kayıt bulunuyor!");
                     return;  // İşlem sonlandırılır
                 }
             }
-
-            // Eğer kayıt yoksa, yeni veriyi ekle
-            String insertSQL = "INSERT INTO kullaniciler_table (bina_no, daire_no, şifre) VALUES (?, ?, ?)";
-            preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setString(1, kull_binano_jtfk.getText());  // Bina No
-            preparedStatement.setString(2, daireNoStr);  // Daire No
-
-            if (jPasswordField4.getText().equals(jPasswordField5.getText())) {
-                preparedStatement.setString(3, jPasswordField5.getText());  // Şifre
-                // Veritabanına ekleme işlemi
-                int rowsInserted = preparedStatement.executeUpdate();
-
-                if (rowsInserted > 0) {
-                    System.out.println("Kayıt başarıyla eklendi!");
-                    jLabel2.setText("Kayıt başarıyla eklendi!");
-                }
-            } else {
-                jLabel2.setText("Şifre ve şifre tekrarı aynı değil.");
-            }
-
-        } catch (ClassNotFoundException e) {
-            // Sürücü yükleme hatası
-            System.err.println("SQL Server JDBC sürücüsü bulunamadı.");
-            e.printStackTrace();
         } catch (SQLException e) {
-            // Bağlantı veya sorgu hatası
-            e.printStackTrace();
-        } finally {
-            // Kaynakları kapat
-            try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                if (preparedStatement != null) {
-                    preparedStatement.close();
-                }
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            System.err.println("Veri çekme hatası: " + e.getMessage());
+        }
+
+        // Kayıt var mı kontrol et
+        // Eğer kayıt yoksa, yeni veriyi ekle
+        String insertSQL = "INSERT INTO kullaniciler_table (bina_no, daire_no, şifre) VALUES (?, ?, ?)";
+        if (jPasswordField4.getText().equals(jPasswordField5.getText())) {
+
+            // Veritabanına ekleme işlemi
+            int result = sql.executeUpdate(insertSQL, kull_binano_jtfk.getText(), daireNoStr, jPasswordField5.getText());
+            if (result > 0) {
+                System.out.println("Veri başarıyla eklendi.");
+            } else {
+                System.err.println("Veri ekleme başarısız.");
             }
+            sql.close();
+
+            if (result > 0) {
+                System.out.println("Kayıt başarıyla eklendi!");
+                jLabel2.setText("Kayıt başarıyla eklendi!");
+            }
+        } else {
+            jLabel2.setText("Şifre ve şifre tekrarı aynı değil.");
         }
 
 
