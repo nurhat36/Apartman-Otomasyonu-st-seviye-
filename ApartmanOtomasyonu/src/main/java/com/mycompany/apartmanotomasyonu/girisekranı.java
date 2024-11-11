@@ -645,7 +645,7 @@ public class girisekranı extends javax.swing.JFrame {
         card.show(kullanicimain, "card3");
 
     }//GEN-LAST:event_kullanıcıgiris_btn1ActionPerformed
-
+    public static String bina_no;
     private void yoneticigiris_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yoneticigiris_btn1ActionPerformed
         SQLHelper dbhelper = new SQLHelper();
 
@@ -660,6 +660,7 @@ public class girisekranı extends javax.swing.JFrame {
                 String veritabanindakiSifre = rs.getString("şifre");
                 // Girilen şifreyle veritabanındaki şifreyi karşılaştırıyoruz
                 if (veritabanindakiSifre.equals(girilenSifre)) {
+                    bina_no=yoneticibinano_jtf1.getText();
                     System.out.println("Bina_No adı ve şifre doğru, işlem başarılı!");
                     java.awt.EventQueue.invokeLater(new Runnable() {
                         public void run() {
