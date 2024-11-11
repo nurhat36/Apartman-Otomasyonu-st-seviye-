@@ -17,6 +17,7 @@ public class kullaniciekrani extends javax.swing.JFrame {
      */
     public kullaniciekrani() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -133,9 +134,9 @@ public class kullaniciekrani extends javax.swing.JFrame {
                 .addComponent(kull_ekr_ustlbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(kull_ekr_aidat_jbtn)
-                        .addComponent(kull_ekr_bin_gideri_jbtn))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(kull_ekr_bin_gideri_jbtn, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(kull_ekr_aidat_jbtn))
                     .addComponent(dek_alani_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(kullanicitablomain_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,7 +172,7 @@ public class kullaniciekrani extends javax.swing.JFrame {
     }//GEN-LAST:event_kull_ekr_bin_gideri_jbtnActionPerformed
 
     /**
-     * @param args the command line arguments
+     * @param args the command line arguments nurhatın bu
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
