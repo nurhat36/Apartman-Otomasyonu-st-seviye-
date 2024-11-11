@@ -688,9 +688,11 @@ public class girisekranı extends javax.swing.JFrame {
         String sql = "SELECT Bina_No, şifre FROM kullaniciler_table WHERE Bina_No = ? and daire_no = ?";
         String girilenKullaniciAdi = binano_jtf.getText(); // Kullanıcı adını UI'den çekiyoruz
         String secilenVeri = (String) daireno_cmb.getSelectedItem();
+        int index = secilenVeri.indexOf(": ");
+        String daireNoStr = secilenVeri.substring(index + 2);
         String girilenSifre = jPasswordField3.getText();
 
-        try (ResultSet rs = dbhelper.executeQuery(sql, girilenKullaniciAdi, secilenVeri)) {
+        try (ResultSet rs = dbhelper.executeQuery(sql, girilenKullaniciAdi, daireNoStr)) {
 
             if (rs.next()) {
                 String veritabanindakiSifre = rs.getString("şifre");
