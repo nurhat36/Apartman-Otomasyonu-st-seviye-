@@ -475,6 +475,11 @@ public class yöneticiekrani extends javax.swing.JFrame {
         jLabel7.setText("Bu Ayki Aidat Miktarını Giriniz :");
 
         Aidatonayla_btn.setText("ONAYLA");
+        Aidatonayla_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Aidatonayla_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout aidatbelirle_panelLayout = new javax.swing.GroupLayout(aidatbelirle_panel);
         aidatbelirle_panel.setLayout(aidatbelirle_panelLayout);
@@ -727,6 +732,27 @@ public class yöneticiekrani extends javax.swing.JFrame {
             imagelabel.setIcon(new ImageIcon(scaledImage)); // JLabel'e resim ekle
         }
     }//GEN-LAST:event_dekontyukleme_btnActionPerformed
+
+    private void Aidatonayla_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Aidatonayla_btnActionPerformed
+        SQLHelper sql=new SQLHelper();
+        String insertSQL = "UPDATE yötici_kayitlari_table SET aidat = ? WHERE Bina_No = ?";
+        
+
+            // Veritabanına ekleme işlemi
+            int result = sql.executeUpdate(insertSQL, aidat_belirleme_spinner.getValue(), girisekranı.bina_no);
+            if (result > 0) {
+                System.out.println("Veri başarıyla eklendi.");
+            } else {
+                System.err.println("Veri ekleme başarısız.");
+            }
+            sql.close();
+
+            if (result > 0) {
+                System.out.println("Kayıt başarıyla eklendi!");
+                
+            }
+       
+    }//GEN-LAST:event_Aidatonayla_btnActionPerformed
 
     /**
      * @param args the command line arguments

@@ -711,6 +711,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="ONAYLA"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Aidatonayla_btnActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
