@@ -9,11 +9,13 @@ import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,10 +27,12 @@ public class yöneticiekrani extends javax.swing.JFrame {
      * Creates new form yöneticiekraniykf
      */
     public yöneticiekrani() {
+        
         initComponents();
         setLocationRelativeTo(null);
         setInitialDate();
         cmbdolur();
+        gelirlerdoldur();
     }
 
     /**
@@ -55,6 +59,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
         gelirtarih = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Gelir_table = new javax.swing.JTable();
         giderler_panel = new javax.swing.JPanel();
@@ -173,6 +178,10 @@ public class yöneticiekrani extends javax.swing.JFrame {
                     .addComponent(gelirtarih, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(163, 163, 163))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +192,9 @@ public class yöneticiekrani extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(gelirtarih, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(daireno_cmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,7 +239,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE))
         );
 
         yoneticimain_panel.add(gelirler_panel, "card2");
@@ -564,9 +575,63 @@ public class yöneticiekrani extends javax.swing.JFrame {
     private void gelirtarihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gelirtarihActionPerformed
         setInitialDate();
     }//GEN-LAST:event_gelirtarihActionPerformed
+    public  void gelirlerdoldur() {
+        SQLHelper dbhelper = new SQLHelper();
 
+        String sql = "SELECT * FROM aidat_gelirleri_table ";
+
+        try (ResultSet rs = dbhelper.executeQuery(sql)) {
+            // Tablo modelini oluşturun
+            DefaultTableModel model = new DefaultTableModel();
+
+            // ResultSetMetaData ile sütun isimlerini alın
+            ResultSetMetaData metaData = rs.getMetaData();
+            int columnCount = metaData.getColumnCount();
+
+            // Sütun isimlerini modele ekleyin
+            for (int i = 1; i <= columnCount; i++) {
+                model.addColumn(metaData.getColumnName(i));
+            }
+
+            // Satır verilerini ekleyin
+            while (rs.next()) {
+                Object[] rowData = new Object[columnCount];
+                for (int i = 1; i <= columnCount; i++) {
+                    rowData[i - 1] = rs.getObject(i);
+                }
+                model.addRow(rowData);
+            }
+
+            // JTable'in modelini ayarlayın (tablo adınızı değiştirin)
+            Gelir_table.setModel(model);
+
+        } catch (SQLException e) {
+            System.err.println("Veri çekme hatası: " + e.getMessage());
+        }
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        SQLHelper dbhelper = new SQLHelper();
+        String insertSQL = "INSERT INTO aidat_gelirleri_table (bina_No, Daire_No,Tarih,miktar) VALUES (?, ?, ?,?)";
+        String secilenVeri = (String) daireno_cmb.getSelectedItem();
+        int index = secilenVeri.indexOf(": ");
+        String daireNoStr = secilenVeri.substring(index + 2);
+
+        // Veritabanına ekleme işlemi
+        int result = dbhelper.executeUpdate(insertSQL, girisekranı.bina_no, daireNoStr, gelirtarih.getText(), aidatmiktari.getValue());
+        if (result > 0) {
+            System.out.println("Veri başarıyla eklendi.");
+        } else {
+            jLabel13.setText("Veri ekleme başarısız.");
+            System.err.println("Veri ekleme başarısız.");
+        }
+        dbhelper.close();
+
+        if (result > 0) {
+            System.out.println("Kayıt başarıyla eklendi!");
+            jLabel13.setText("Kayıt başarıyla eklendi!");
+        }
+        gelirlerdoldur();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void daireno_cmbİtemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_daireno_cmbİtemStateChanged
@@ -831,6 +896,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
