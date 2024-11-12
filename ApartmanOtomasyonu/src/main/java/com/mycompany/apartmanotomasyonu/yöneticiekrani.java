@@ -84,6 +84,8 @@ public class yöneticiekrani extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         aidat_belirleme_spinner = new javax.swing.JSpinner();
         Aidatonayla_btn = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("YÖNETİCİ");
@@ -486,32 +488,42 @@ public class yöneticiekrani extends javax.swing.JFrame {
         aidatbelirle_panelLayout.setHorizontalGroup(
             aidatbelirle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(aidatbelirle_panelLayout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addGroup(aidatbelirle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addGroup(aidatbelirle_panelLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(aidat_belirleme_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 275, Short.MAX_VALUE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106))
+            .addGroup(aidatbelirle_panelLayout.createSequentialGroup()
                 .addGroup(aidatbelirle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(aidatbelirle_panelLayout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addGroup(aidatbelirle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addGroup(aidatbelirle_panelLayout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(aidat_belirleme_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(aidatbelirle_panelLayout.createSequentialGroup()
                         .addGap(368, 368, 368)
-                        .addComponent(Aidatonayla_btn)))
-                .addContainerGap(523, Short.MAX_VALUE))
+                        .addComponent(Aidatonayla_btn))
+                    .addGroup(aidatbelirle_panelLayout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         aidatbelirle_panelLayout.setVerticalGroup(
             aidatbelirle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(aidatbelirle_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel6)
+                .addGroup(aidatbelirle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel11))
                 .addGap(47, 47, 47)
                 .addGroup(aidatbelirle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(aidat_belirleme_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(Aidatonayla_btn)
-                .addContainerGap(544, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jLabel12)
+                .addContainerGap(516, Short.MAX_VALUE))
         );
 
         yoneticimain_panel.add(aidatbelirle_panel, "card4");
@@ -734,24 +746,24 @@ public class yöneticiekrani extends javax.swing.JFrame {
     }//GEN-LAST:event_dekontyukleme_btnActionPerformed
 
     private void Aidatonayla_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Aidatonayla_btnActionPerformed
-        SQLHelper sql=new SQLHelper();
+        SQLHelper sql = new SQLHelper();
         String insertSQL = "UPDATE yötici_kayitlari_table SET aidat = ? WHERE Bina_No = ?";
-        
 
-            // Veritabanına ekleme işlemi
-            int result = sql.executeUpdate(insertSQL, aidat_belirleme_spinner.getValue(), girisekranı.bina_no);
-            if (result > 0) {
-                System.out.println("Veri başarıyla eklendi.");
-            } else {
-                System.err.println("Veri ekleme başarısız.");
-            }
-            sql.close();
+        // Veritabanına ekleme işlemi
+        int result = sql.executeUpdate(insertSQL, aidat_belirleme_spinner.getValue(), girisekranı.bina_no);
+        if (result > 0) {
+            jLabel12.setText("aidat başarıyla güncellendi.");
+            System.out.println("Veri başarıyla eklendi.");
+        } else {
+            System.err.println("Veri ekleme başarısız.");
+        }
+        sql.close();
 
-            if (result > 0) {
-                System.out.println("Kayıt başarıyla eklendi!");
-                
-            }
-       
+        if (result > 0) {
+            System.out.println("Kayıt başarıyla eklendi!");
+
+        }
+
     }//GEN-LAST:event_Aidatonayla_btnActionPerformed
 
     /**
@@ -817,6 +829,8 @@ public class yöneticiekrani extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
