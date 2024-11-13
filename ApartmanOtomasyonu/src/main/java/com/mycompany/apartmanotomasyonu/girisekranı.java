@@ -681,7 +681,7 @@ public class girisekranı extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_yoneticigiris_btn1ActionPerformed
-
+    public static String daire_no;
     private void kullanicigiris_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kullanicigiris_btnActionPerformed
 
         SQLHelper dbhelper = new SQLHelper();
@@ -706,6 +706,8 @@ public class girisekranı extends javax.swing.JFrame {
                             new kullaniciekrani().setVisible(true);
                         }
                     });
+                    bina_no=girilenKullaniciAdi;
+                    daire_no=daireNoStr;
                     // Burada gerekli işlemleri yapabilirsiniz
                 } else {
                     kul_gir_hata_lbli.setText("Bina no ve/veya şifre yanlış");
