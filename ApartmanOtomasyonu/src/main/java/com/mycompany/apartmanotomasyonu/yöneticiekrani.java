@@ -1066,8 +1066,8 @@ public class yöneticiekrani extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         SQLHelper dphelper = new SQLHelper();
 
-        String selectSQL = "SELECT dekont FROM Bina_Giderleri_table where id=?";
-        try (ResultSet rs = dphelper.executeQuery(selectSQL, jSpinner2.getValue())) {
+        String selectSQL = "SELECT dekont FROM Bina_Giderleri_table where id=? and Bina_no=?";
+        try (ResultSet rs = dphelper.executeQuery(selectSQL, jSpinner2.getValue(),girisekranı.bina_no)) {
             if (rs.next()) {
                 // Veriyi alıyoruz
                 byte[] imageBytes = rs.getBytes("dekont");
@@ -1107,9 +1107,12 @@ public class yöneticiekrani extends javax.swing.JFrame {
                     imageFrame.setLocationRelativeTo(null); // Frame'i ekrana ortalıyoruz
                     imageFrame.setVisible(true);
                 }
+            }else{
+                jLabel14.setText("yanlış ID");
             }
 
         } catch (SQLException | IOException e) {
+            
             e.printStackTrace();
         }
 
