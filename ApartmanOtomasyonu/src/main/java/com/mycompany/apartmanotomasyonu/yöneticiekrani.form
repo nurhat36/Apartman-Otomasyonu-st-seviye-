@@ -177,7 +177,9 @@
                                   <Component id="aidatmiktari" max="32767" attributes="0"/>
                                   <Component id="daireno_cmb" pref="110" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="434" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="aidat_ode_jbutton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel5" min="-2" pref="77" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -202,6 +204,7 @@
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="gelirtarih" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="aidat_ode_jbutton" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel13" min="-2" pref="12" max="-2" attributes="0"/>
@@ -278,6 +281,14 @@
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel13">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="aidat_ode_jbutton">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Aidat &#xd6;de"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aidat_ode_jbuttonActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

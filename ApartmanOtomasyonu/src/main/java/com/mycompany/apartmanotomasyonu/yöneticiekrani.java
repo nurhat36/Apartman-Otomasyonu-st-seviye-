@@ -63,6 +63,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        aidat_ode_jbutton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Gelir_table = new javax.swing.JTable();
         giderler_panel = new javax.swing.JPanel();
@@ -163,6 +164,13 @@ public class yöneticiekrani extends javax.swing.JFrame {
             }
         });
 
+        aidat_ode_jbutton.setText("Aidat Öde");
+        aidat_ode_jbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aidat_ode_jbuttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -176,7 +184,9 @@ public class yöneticiekrani extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(aidatmiktari)
                     .addComponent(daireno_cmb, 0, 110, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 434, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(aidat_ode_jbutton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +206,8 @@ public class yöneticiekrani extends javax.swing.JFrame {
                     .addComponent(aidatmiktari, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(gelirtarih, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(aidat_ode_jbutton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -586,7 +597,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void gelirtarihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gelirtarihActionPerformed
         setInitialDate();
     }//GEN-LAST:event_gelirtarihActionPerformed
@@ -608,6 +619,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
             System.err.println("Veri çekme hatası: " + e.getMessage());
         }
     }
+    private int aidat;
     private void aidatyaz(){
         SQLHelper dbhelper = new SQLHelper();
 
@@ -616,7 +628,8 @@ public class yöneticiekrani extends javax.swing.JFrame {
         try (ResultSet rs = dbhelper.executeQuery(sql, girisekranı.bina_no)) {
 
             if (rs.next()) {
-               aidat_lbl.setText("Aidat: "+rs.getInt("aidat"));
+                aidat=rs.getInt("aidat");
+               aidat_lbl.setText("Aidat: "+aidat);
             } 
         } catch (SQLException e) {
             System.err.println("Veri çekme hatası: " + e.getMessage());
@@ -881,6 +894,10 @@ public class yöneticiekrani extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Aidatonayla_btnActionPerformed
 
+    private void aidat_ode_jbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aidat_ode_jbuttonActionPerformed
+        aidatmiktari.setValue(aidat);
+    }//GEN-LAST:event_aidat_ode_jbuttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -922,6 +939,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
     private javax.swing.JTable Gelir_table;
     private javax.swing.JSpinner aidat_belirleme_spinner;
     private javax.swing.JLabel aidat_lbl;
+    private javax.swing.JButton aidat_ode_jbutton;
     private javax.swing.JPanel aidatbelirle_panel;
     private javax.swing.JSpinner aidatmiktari;
     private javax.swing.JLabel butce_lbl;
