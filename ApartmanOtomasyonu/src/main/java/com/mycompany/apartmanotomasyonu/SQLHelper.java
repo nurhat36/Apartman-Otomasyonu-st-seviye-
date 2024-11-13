@@ -9,7 +9,7 @@ import java.sql.*;
  * @author Nurhat
  */
 public class SQLHelper {
-    private static final String DB_URL = "jdbc:sqlserver://DESKTOP-T11FMIO;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
+    private static final String DB_URL = "jdbc:sqlserver://DESKTOP-BT77ME7;databaseName=APARTMAN;integratedSecurity=True;encrypt=True;trustServerCertificate=True";
    
     private Connection conn;
 

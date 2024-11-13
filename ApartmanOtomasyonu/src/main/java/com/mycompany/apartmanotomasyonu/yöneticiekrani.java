@@ -578,9 +578,9 @@ public class yöneticiekrani extends javax.swing.JFrame {
     public  void gelirlerdoldur() {
         SQLHelper dbhelper = new SQLHelper();
 
-        String sql = "SELECT * FROM aidat_gelirleri_table ";
+        String sql = "SELECT * FROM aidat_gelirleri_table WHERE bina_no=? ";
 
-        try (ResultSet rs = dbhelper.executeQuery(sql)) {
+        try (ResultSet rs = dbhelper.executeQuery(sql,girisekranı.bina_no)) {
             // Tablo modelini oluşturun
             DefaultTableModel model = new DefaultTableModel();
 
@@ -619,7 +619,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
         // Veritabanına ekleme işlemi
         int result = dbhelper.executeUpdate(insertSQL, girisekranı.bina_no, daireNoStr, gelirtarih.getText(), aidatmiktari.getValue());
         if (result > 0) {
-            System.out.println("Veri başarıyla eklendi.");
+            System.out.println("Veri başarıyla eklendi."+result);
         } else {
             jLabel13.setText("Veri ekleme başarısız.");
             System.err.println("Veri ekleme başarısız.");
@@ -721,7 +721,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
     }//GEN-LAST:event_gidertarih_tfActionPerformed
     private void setInitialDate() {
         LocalDate tarih = LocalDate.now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         gidertarih_tf.setText(tarih.format(format));
         gelirtarih.setText(tarih.format(format));
     }
