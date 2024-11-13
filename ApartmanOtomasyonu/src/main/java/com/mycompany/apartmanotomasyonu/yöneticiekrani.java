@@ -33,6 +33,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
         setInitialDate();
         cmbdolur();
         gelirlerdoldur();
+        aidatyaz();
     }
 
     /**
@@ -91,6 +92,8 @@ public class yöneticiekrani extends javax.swing.JFrame {
         Aidatonayla_btn = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        butce_lbl = new javax.swing.JLabel();
+        aidat_lbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("YÖNETİCİ");
@@ -541,6 +544,10 @@ public class yöneticiekrani extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(yoneticimain_panel);
 
+        butce_lbl.setText("Bütçe: ");
+
+        aidat_lbl.setText("Aidat: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -552,7 +559,11 @@ public class yöneticiekrani extends javax.swing.JFrame {
                 .addComponent(giderler_btn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Aidat_belirleme_btn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(aidat_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(butce_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane3)
                 .addContainerGap())
@@ -564,7 +575,9 @@ public class yöneticiekrani extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gelirler_btn)
                     .addComponent(giderler_btn)
-                    .addComponent(Aidat_belirleme_btn))
+                    .addComponent(Aidat_belirleme_btn)
+                    .addComponent(butce_lbl)
+                    .addComponent(aidat_lbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -575,6 +588,41 @@ public class yöneticiekrani extends javax.swing.JFrame {
     private void gelirtarihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gelirtarihActionPerformed
         setInitialDate();
     }//GEN-LAST:event_gelirtarihActionPerformed
+    private void butceyaz(){
+        SQLHelper dbhelper = new SQLHelper();
+
+        String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
+        daireno_cmb.removeAllItems();
+        try (ResultSet rs = dbhelper.executeQuery(sql )) {
+
+            if (rs.next()) {
+                int daireSayisi = rs.getInt("Daire_Sayısı");
+
+                // Şimdi daire numaralarını ComboBox'a ekleyelim
+                for (int i = 1; i <= daireSayisi; i++) {
+                    daireno_cmb.addItem("Daire No: " + i);
+                }
+            } else {
+                daireno_cmb.removeAllItems(); // Kayıt bulunmazsa ComboBox'u temizleyin
+            }
+        } catch (SQLException e) {
+            System.err.println("Veri çekme hatası: " + e.getMessage());
+        }
+    }
+    private void aidatyaz(){
+        SQLHelper dbhelper = new SQLHelper();
+
+        String sql = "SELECT aidat FROM yötici_kayitlari_table WHERE Bina_No = ?";
+        daireno_cmb.removeAllItems();
+        try (ResultSet rs = dbhelper.executeQuery(sql, girisekranı.bina_no)) {
+
+            if (rs.next()) {
+               aidat_lbl.setText("Aidat: "+rs.getInt("aidat"));
+            } 
+        } catch (SQLException e) {
+            System.err.println("Veri çekme hatası: " + e.getMessage());
+        }
+    }
     public  void gelirlerdoldur() {
         SQLHelper dbhelper = new SQLHelper();
 
@@ -828,6 +876,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
             System.out.println("Kayıt başarıyla eklendi!");
 
         }
+        aidatyaz();
 
     }//GEN-LAST:event_Aidatonayla_btnActionPerformed
 
@@ -871,8 +920,10 @@ public class yöneticiekrani extends javax.swing.JFrame {
     private javax.swing.JButton Aidatonayla_btn;
     private javax.swing.JTable Gelir_table;
     private javax.swing.JSpinner aidat_belirleme_spinner;
+    private javax.swing.JLabel aidat_lbl;
     private javax.swing.JPanel aidatbelirle_panel;
     private javax.swing.JSpinner aidatmiktari;
+    private javax.swing.JLabel butce_lbl;
     private javax.swing.JComboBox<String> daireno_cmb;
     private javax.swing.JButton dekontyukleme_btn;
     private javax.swing.JPanel digergider_panel;
