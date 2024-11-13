@@ -31,9 +31,11 @@ public class yöneticiekrani extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setInitialDate();
-        cmbdolur();
+        
         gelirlerdoldur();
         aidatyaz();
+        butceyaz();
+        cmbdolur();
     }
 
     /**
@@ -591,17 +593,14 @@ public class yöneticiekrani extends javax.swing.JFrame {
     private void butceyaz(){
         SQLHelper dbhelper = new SQLHelper();
 
-        String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
+        String sql = "SELECT sum(miktar) toplam FROM aidat_gelirleri_table WHERE Bina_No = ?";
         daireno_cmb.removeAllItems();
-        try (ResultSet rs = dbhelper.executeQuery(sql )) {
+        try (ResultSet rs = dbhelper.executeQuery(sql ,girisekranı.bina_no)) {
 
             if (rs.next()) {
-                int daireSayisi = rs.getInt("Daire_Sayısı");
+                int toplam = rs.getInt("toplam");
 
-                // Şimdi daire numaralarını ComboBox'a ekleyelim
-                for (int i = 1; i <= daireSayisi; i++) {
-                    daireno_cmb.addItem("Daire No: " + i);
-                }
+                butce_lbl.setText("Bütçe: "+toplam);
             } else {
                 daireno_cmb.removeAllItems(); // Kayıt bulunmazsa ComboBox'u temizleyin
             }
@@ -679,6 +678,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
             jLabel13.setText("Kayıt başarıyla eklendi!");
         }
         gelirlerdoldur();
+         butceyaz();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -751,6 +751,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
 
             if (rs.next()) {
                 int daireSayisi = rs.getInt("Daire_Sayısı");
+                System.err.println(daireSayisi);
 
                 // Şimdi daire numaralarını ComboBox'a ekleyelim
                 for (int i = 1; i <= daireSayisi; i++) {
