@@ -6,6 +6,7 @@ public class ApartmanOtomasyonu {
 
     public static void main(String[] args) {
 
+
            // Formu başlat
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
