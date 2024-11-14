@@ -42,6 +42,8 @@ public class kullaniciekrani extends javax.swing.JFrame {
         gelirlerdoldur();
         gelirlerdoldur2();
         kull_ekr_ust_lbl1();
+        aidatBilgileriniDoldur();
+        kul_butceyaz();
     }
 
     /**
@@ -69,6 +71,8 @@ public class kullaniciekrani extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        aidat_lbl = new javax.swing.JLabel();
+        gelir_lbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,40 +143,51 @@ public class kullaniciekrani extends javax.swing.JFrame {
             }
         });
 
+        aidat_lbl.setText("Bu ayki aidatınız:");
+
+        gelir_lbl.setText("Bina Geliri:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(kullanicitablomain_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(kull_ekr_bin_gideri_jbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(gelir_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(aidat_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(kull_ekr_aidat_jbtn)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(193, 193, 193))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGap(377, 377, 377)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jLabel1)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(jSpinner1)))
+                                            .addComponent(jButton1))
+                                        .addGap(71, 71, 71)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(kullanicitablomain_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(kull_ekr_bin_gideri_jbtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(kull_ekr_aidat_jbtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(193, 193, 193)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jSpinner1)))
-                    .addComponent(jButton1))
-                .addGap(77, 77, 77))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kull_ekr_ustlbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(kull_ekr_ust_lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(kull_ekr_ustlbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(kull_ekr_ust_lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -183,11 +198,14 @@ public class kullaniciekrani extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(kull_ekr_ustlbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(aidat_lbl))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gelir_lbl))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,6 +273,74 @@ public void gelirlerdoldur() {
         kull_ekr_tbl1.setModel(model);
         kull_ekr_tbl1.setRowHeight(40); // Satır yüksekliği butonlar için ayarlanır
     }
+private void kul_butceyaz() {
+        SQLHelper dbhelper = new SQLHelper();
+
+        String sql = "SELECT sum(miktar) toplam FROM aidat_gelirleri_table WHERE Bina_No = ?";
+
+        double toplam = 0;
+        try (ResultSet rs = dbhelper.executeQuery(sql, girisekranı.bina_no)) {
+
+            if (rs.next()) {
+                toplam = rs.getInt("toplam");
+
+            }
+        } catch (SQLException e) {
+            System.err.println("Veri çekme hatası: " + e.getMessage());
+        }
+        String sql2 = "SELECT sum(miktar) toplam FROM Bina_Giderleri_table WHERE Bina_No = ?";
+        
+        double toplam2=0;
+        try (ResultSet rs = dbhelper.executeQuery(sql2, girisekranı.bina_no)) {
+
+            if (rs.next()) {
+                toplam2 = rs.getInt("toplam");
+
+                gelir_lbl.setText("Bütçe: " + (toplam - toplam2)+" TL");
+            }
+        } catch (SQLException e) {
+            System.err.println("Veri çekme hatası: " + e.getMessage());
+        }
+        System.out.println(toplam-toplam2);
+
+    }
+public void aidatBilgileriniDoldur() {
+    SQLHelper dphelper = new SQLHelper();
+    DefaultTableModel model = new DefaultTableModel();
+
+    // Sütunları tanımlıyoruz
+    model.addColumn("Bina No");
+    model.addColumn("Daire No");
+    model.addColumn("Tarih");
+    model.addColumn("Miktar");
+
+    String selectSQL = "SELECT aidat FROM yötici_kayitlari_table WHERE bina_no = ? ";
+    
+    try (ResultSet rs = dphelper.executeQuery(selectSQL, girisekranı.bina_no)) {
+        
+        double toplamAidat = 0.0; // Toplam aidat miktarını tutmak için
+
+        while (rs.next()) {
+            Vector<Object> row = new Vector<>();
+            
+            
+                   
+
+            // Toplam aidat hesabı yapılıyor
+            toplamAidat = rs.getDouble("aidat");
+
+            model.addRow(row);
+        }
+
+       
+
+        // JLabel üzerinde toplam aidat miktarını gösteriyoruz
+        aidat_lbl.setText("Bu Ayki Aidat: " + toplamAidat + " TL");
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
 private String tarih;
 public void gelirlerdoldur2() {
         SQLHelper dphelper = new SQLHelper();
@@ -421,6 +507,8 @@ private void kull_ekr_ust_lbl1() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel aidat_lbl;
+    private javax.swing.JLabel gelir_lbl;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
