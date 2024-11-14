@@ -5,6 +5,7 @@
 package com.mycompany.apartmanotomasyonu;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -15,6 +16,10 @@ import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Vector;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -36,6 +41,7 @@ public class kullaniciekrani extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         gelirlerdoldur();
         gelirlerdoldur2();
+        kull_ekr_ust_lbl1();
     }
 
     /**
@@ -151,12 +157,6 @@ public class kullaniciekrani extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(193, 193, 193)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kull_ekr_ust_lbl1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(kull_ekr_ustlbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,6 +168,12 @@ public class kullaniciekrani extends javax.swing.JFrame {
                             .addComponent(jSpinner1)))
                     .addComponent(jButton1))
                 .addGap(77, 77, 77))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kull_ekr_ustlbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(kull_ekr_ust_lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,17 +255,17 @@ public void gelirlerdoldur() {
         kull_ekr_tbl1.setModel(model);
         kull_ekr_tbl1.setRowHeight(40); // Satır yüksekliği butonlar için ayarlanır
     }
+private String tarih;
 public void gelirlerdoldur2() {
         SQLHelper dphelper = new SQLHelper();
         DefaultTableModel model = new DefaultTableModel();
-        
+
         model.addColumn("Bina No");
         model.addColumn("Daire No");
         model.addColumn("Tarih");
         
         model.addColumn("Miktar");
-       
-
+    
         String selectSQL = "SELECT bina_no, Daire_no, Tarih, miktar FROM aidat_gelirleri_table where Bina_no=? and Daire_no=?";
         try (ResultSet rs = dphelper.executeQuery(selectSQL, girisekranı.bina_no,girisekranı.daire_no)) {
 
@@ -270,6 +276,7 @@ public void gelirlerdoldur2() {
                 row.add(rs.getInt("bina_no"));
                 row.add(rs.getString("Daire_no"));
                 row.add(rs.getString("Tarih"));
+                tarih=rs.getString("Tarih");
                 row.add(rs.getObject("miktar"));
                 
 
@@ -277,6 +284,7 @@ public void gelirlerdoldur2() {
                 model.addRow(row);
 
             }
+            System.out.println(tarih);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -293,7 +301,36 @@ public void gelirlerdoldur2() {
         CardLayout card = (CardLayout) kullanicitablomain_panel.getLayout();
         card.show(kullanicitablomain_panel, "card2");
     }//GEN-LAST:event_kull_ekr_bin_gideri_jbtnActionPerformed
+private void kull_ekr_ust_lbl1() {
+    // Son ödeme tarihini kontrol et
+     LocalDate ayinIlkGunu = LocalDate.now().withDayOfMonth(1);
+     
+    System.out.println("Bu ayın ilk günü: " + ayinIlkGunu);
+    String tarihstr=tarih;
 
+    try {
+        // String tarih bilgisini LocalDate'e çevirin
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate tarih = LocalDate.parse(tarihstr, formatter);
+        System.out.println(tarih);
+
+        // Tarihi kontrol edin
+        if (tarih.isBefore(ayinIlkGunu)) {
+            // Ödeme yapılmamış veya geç yapılmışsa kırmızı
+            kull_ekr_ust_lbl1.setBackground(Color.RED);
+            kull_ekr_ust_lbl1.setText("Ödeme yapılmadı veya geç yapıldı");
+        } else {
+            // Ödeme zamanında yapılmışsa yeşil
+            kull_ekr_ust_lbl1.setBackground(Color.GREEN);
+            kull_ekr_ust_lbl1.setText("Ödeme yapıldı");
+        }
+    } catch (DateTimeParseException e) {
+        // Geçersiz tarih formatı durumunda hata mesajı
+        kull_ekr_ust_lbl1.setBackground(Color.RED);
+        kull_ekr_ust_lbl1.setText("Geçersiz tarih formatı");
+        System.err.println("Tarih formatı hatalı: " + e.getMessage());
+    }
+}
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         SQLHelper dphelper = new SQLHelper();
 

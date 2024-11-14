@@ -44,7 +44,6 @@ public class yöneticiekrani extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setInitialDate();
-
         gelirlerdoldur();
         aidatyaz();
         butceyaz();
