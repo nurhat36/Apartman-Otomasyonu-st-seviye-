@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.apartmanotomasyonu;
+import java.io.FileInputStream;
 import java.sql.*;
 /**
  *
@@ -49,6 +50,29 @@ public class SQLHelper {
             System.err.println("Sorgu hatası: " + e.getMessage());
             return -1;
         }
+    }
+     public int executeUpdateresim(String sql, String binaNo, String tarih, String giderTur, Object miktar, FileInputStream fis, int fileLength) {
+        int result = 0;
+
+        try  {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, binaNo);
+            pstmt.setString(2, tarih);
+            pstmt.setString(3, giderTur);
+            pstmt.setObject(4, miktar);
+
+            // Dekont olarak resmi InputStream ile ekliyoruz
+            if (fis != null) {
+                pstmt.setBinaryStream(5, fis, fileLength);
+            } else {
+                pstmt.setNull(5, java.sql.Types.VARBINARY);
+            }
+
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     // Veritabanı bağlantısını kapatma metodu
