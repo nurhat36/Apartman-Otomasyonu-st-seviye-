@@ -712,36 +712,39 @@ public class yöneticiekrani extends javax.swing.JFrame {
     public void gelirlerdoldur() {
         SQLHelper dbhelper = new SQLHelper();
 
-        String sql = "SELECT * FROM aidat_gelirleri_table WHERE bina_no=? ";
+        String sql = "SELECT bina_no, Daire_no, Tarih, miktar FROM aidat_gelirleri_table where Bina_no=?";
+
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("Bina No");
+        model.addColumn("Daire No");
+        model.addColumn("Tarih");
+       
+        model.addColumn("Miktar (TL)");
+        
 
         try (ResultSet rs = dbhelper.executeQuery(sql, girisekranı.bina_no)) {
-            // Tablo modelini oluşturun
-            DefaultTableModel model = new DefaultTableModel();
 
-            // ResultSetMetaData ile sütun isimlerini alın
-            ResultSetMetaData metaData = rs.getMetaData();
-            int columnCount = metaData.getColumnCount();
-
-            // Sütun isimlerini modele ekleyin
-            for (int i = 1; i <= columnCount; i++) {
-                model.addColumn(metaData.getColumnName(i));
-            }
-
-            // Satır verilerini ekleyin
             while (rs.next()) {
-                Object[] rowData = new Object[columnCount];
-                for (int i = 1; i <= columnCount; i++) {
-                    rowData[i - 1] = rs.getObject(i);
-                }
-                model.addRow(rowData);
+
+                Vector<Object> row = new Vector<>();
+                
+                row.add(rs.getInt("bina_no"));
+                row.add(rs.getString("Daire_no"));
+                row.add(rs.getString("Tarih"));
+                row.add(rs.getObject("miktar"));
+                
+
+                // Her satır için bir buton yerleştirme
+                model.addRow(row);
+
             }
-
-            // JTable'in modelini ayarlayın (tablo adınızı değiştirin)
-            Gelir_table.setModel(model);
-
         } catch (SQLException e) {
-            System.err.println("Veri çekme hatası: " + e.getMessage());
+            e.printStackTrace();
         }
+
+        Gelir_table.setModel(model);
+        
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         SQLHelper dbhelper = new SQLHelper();
@@ -975,7 +978,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
         model.addColumn("Bina No");
         model.addColumn("Tarih");
         model.addColumn("Gider Türü");
-        model.addColumn("Miktar");
+        model.addColumn("Miktar (TL)");
         model.addColumn("Dekont Resmi");
 
         String selectSQL = "SELECT id,Bina_no, tarih, Gidar_Türü, miktar, dekont FROM Bina_Giderleri_table where Bina_no=?";

@@ -246,7 +246,7 @@ public void gelirlerdoldur() {
         model.addColumn("Bina No");
         model.addColumn("Tarih");
         model.addColumn("Gider Türü");
-        model.addColumn("Miktar");
+        model.addColumn("Miktar (TL)");
         model.addColumn("Dekont Resmi");
 
         String selectSQL = "SELECT id,Bina_no, tarih, Gidar_Türü, miktar, dekont FROM Bina_Giderleri_table where Bina_no=?";
@@ -306,13 +306,7 @@ private void kul_butceyaz() {
     }
 public void aidatBilgileriniDoldur() {
     SQLHelper dphelper = new SQLHelper();
-    DefaultTableModel model = new DefaultTableModel();
-
-    // Sütunları tanımlıyoruz
-    model.addColumn("Bina No");
-    model.addColumn("Daire No");
-    model.addColumn("Tarih");
-    model.addColumn("Miktar");
+    
 
     String selectSQL = "SELECT aidat FROM yötici_kayitlari_table WHERE bina_no = ? ";
     
@@ -329,7 +323,7 @@ public void aidatBilgileriniDoldur() {
             // Toplam aidat hesabı yapılıyor
             toplamAidat = rs.getDouble("aidat");
 
-            model.addRow(row);
+            
         }
 
        
@@ -350,7 +344,7 @@ public void gelirlerdoldur2() {
         model.addColumn("Daire No");
         model.addColumn("Tarih");
         
-        model.addColumn("Miktar");
+        model.addColumn("Miktar (TL)");
     
         String selectSQL = "SELECT bina_no, Daire_no, Tarih, miktar FROM aidat_gelirleri_table where Bina_no=? and Daire_no=?";
         try (ResultSet rs = dphelper.executeQuery(selectSQL, girisekranı.bina_no,girisekranı.daire_no)) {
