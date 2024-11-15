@@ -744,7 +744,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
         }
 
         Gelir_table.setModel(model);
-        
+                                                             
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         SQLHelper dbhelper = new SQLHelper();
