@@ -1,4 +1,4 @@
-package com.mycompany.apartmanotomasyonu;//wrgerge
+package com.mycompany.apartmanotomasyonu;
 
 
 public class ApartmanOtomasyonu {
