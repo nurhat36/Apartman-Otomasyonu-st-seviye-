@@ -72,6 +72,8 @@ public class girisekranı extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
         yoneticigirisi_btn = new javax.swing.JButton();
         kullanıcıgiris_btn1 = new javax.swing.JButton();
         kullanicimain = new javax.swing.JPanel();
@@ -86,6 +88,7 @@ public class girisekranı extends javax.swing.JFrame {
         yöneticigirispass = new javax.swing.JPasswordField();
         jButton6 = new javax.swing.JButton();
         yön_gr_hata_lbli = new javax.swing.JLabel();
+        Sifremi_unuttum_yon_jbtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         kay_ekr_jlbl = new javax.swing.JLabel();
         yönetici_kaydi_lbl = new javax.swing.JLabel();
@@ -101,6 +104,9 @@ public class girisekranı extends javax.swing.JFrame {
         jPasswordField2 = new javax.swing.JPasswordField();
         jButton8 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        Telefon_No_lbl = new javax.swing.JLabel();
+        yon_ulkekodujcmb = new javax.swing.JComboBox<>();
+        Telefon_Nojtf = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         kullanıcıpanel = new javax.swing.JPanel();
         title_jbl = new javax.swing.JLabel();
@@ -114,6 +120,7 @@ public class girisekranı extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         kul_gir_hata_lbli = new javax.swing.JLabel();
+        Sifremi_Unuttum_kull_jbtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         kay_ekr_kul_jlbl = new javax.swing.JLabel();
         kullanıcı_kaydi_jlbl = new javax.swing.JLabel();
@@ -129,6 +136,13 @@ public class girisekranı extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        telefon_no_jlbl = new javax.swing.JLabel();
+        kull_ulkekodu_cmb = new javax.swing.JComboBox<>();
+        telefon_no_jtf = new javax.swing.JTextField();
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GİRİŞ YAP");
@@ -189,6 +203,8 @@ public class girisekranı extends javax.swing.JFrame {
         yön_gr_hata_lbli.setForeground(new java.awt.Color(255, 0, 0));
         yön_gr_hata_lbli.setText(" ");
 
+        Sifremi_unuttum_yon_jbtn.setText("Şifremi Unuttum");
+
         javax.swing.GroupLayout yöneticipanelLayout = new javax.swing.GroupLayout(yöneticipanel);
         yöneticipanel.setLayout(yöneticipanelLayout);
         yöneticipanelLayout.setHorizontalGroup(
@@ -200,6 +216,9 @@ public class girisekranı extends javax.swing.JFrame {
                         .addComponent(yoneticititle, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton6))
+                    .addGroup(yöneticipanelLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(yön_gr_hata_lbli, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(yöneticipanelLayout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -215,11 +234,12 @@ public class girisekranı extends javax.swing.JFrame {
                                 .addComponent(jButton1))
                             .addGroup(yöneticipanelLayout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(yoneticigiris_btn1))))
-                    .addGroup(yöneticipanelLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(yön_gr_hata_lbli, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                                .addComponent(yoneticigiris_btn1)))))
+                .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, yöneticipanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Sifremi_unuttum_yon_jbtn)
+                .addGap(18, 18, 18))
         );
         yöneticipanelLayout.setVerticalGroup(
             yöneticipanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,7 +261,9 @@ public class girisekranı extends javax.swing.JFrame {
                 .addComponent(yön_gr_hata_lbli)
                 .addGap(18, 18, 18)
                 .addComponent(yoneticigiris_btn1)
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(Sifremi_unuttum_yon_jbtn)
+                .addContainerGap(195, Short.MAX_VALUE))
         );
 
         jPanel3.add(yöneticipanel, "card2");
@@ -282,6 +304,15 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
 
+        Telefon_No_lbl.setText("Telefon NO :");
+
+        yon_ulkekodujcmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        yon_ulkekodujcmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yon_ulkekodujcmbActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -307,22 +338,37 @@ public class girisekranı extends javax.swing.JFrame {
                                             .addComponent(yön_kay_dai_say_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(yoneticibinano_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(yön_kay_jbtn)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                        .addComponent(yön_kay_dai_say_jtf, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(yoneticibinano_jtfk, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPasswordField2))))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                    .addComponent(yön_kay_dai_say_jtf, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(yoneticibinano_jtfk, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPasswordField2))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)))
                 .addGap(10, 10, 10))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(yönetici_kaydi_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(jButton8)
                 .addGap(15, 15, 15))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Telefon_No_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(yon_ulkekodujcmb, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Telefon_Nojtf))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(yön_kay_jbtn)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,11 +397,16 @@ public class girisekranı extends javax.swing.JFrame {
                     .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Telefon_No_lbl)
+                    .addComponent(yon_ulkekodujcmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Telefon_Nojtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(14, 14, 14)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(yön_kay_jbtn)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel1, "card3");
@@ -405,6 +456,8 @@ public class girisekranı extends javax.swing.JFrame {
 
         kul_gir_hata_lbli.setText(" ");
 
+        Sifremi_Unuttum_kull_jbtn.setText("Şifremi Unuttum");
+
         javax.swing.GroupLayout kullanıcıpanelLayout = new javax.swing.GroupLayout(kullanıcıpanel);
         kullanıcıpanel.setLayout(kullanıcıpanelLayout);
         kullanıcıpanelLayout.setHorizontalGroup(
@@ -428,13 +481,19 @@ public class girisekranı extends javax.swing.JFrame {
                             .addComponent(kul_gir_hata_lbli, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(kullanıcıpanelLayout.createSequentialGroup()
                                 .addGroup(kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(kullanicigiris_btn)
                                     .addComponent(daireno_cmb, 0, 96, Short.MAX_VALUE)
                                     .addComponent(binano_jtf)
-                                    .addComponent(jPasswordField3))
+                                    .addComponent(jPasswordField3)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kullanıcıpanelLayout.createSequentialGroup()
+                                        .addComponent(kullanicigiris_btn)
+                                        .addGap(6, 6, 6)))
                                 .addGap(16, 16, 16)
                                 .addComponent(jButton4)))))
                 .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kullanıcıpanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Sifremi_Unuttum_kull_jbtn)
+                .addGap(14, 14, 14))
         );
         kullanıcıpanelLayout.setVerticalGroup(
             kullanıcıpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -458,9 +517,11 @@ public class girisekranı extends javax.swing.JFrame {
                     .addComponent(jButton4))
                 .addGap(46, 46, 46)
                 .addComponent(kul_gir_hata_lbli)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(kullanicigiris_btn)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(Sifremi_Unuttum_kull_jbtn)
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         jPanel4.add(kullanıcıpanel, "card2");
@@ -525,6 +586,12 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
 
+        telefon_no_jlbl.setText("Telefon NO :");
+
+        kull_ulkekodu_cmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        telefon_no_jtf.setText(" ");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -537,32 +604,43 @@ public class girisekranı extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(kullanıcı_kaydi_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                         .addComponent(jButton5)
                         .addGap(23, 23, 23))))
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(kull_kay_jbtn))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton3)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(kull_binano_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(kull_kay_daireno_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(kull_kay_şif_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(kull_kay_şiftek_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(telefon_no_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(kull_binano_jlbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(kull_kay_daireno_jlbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(kull_kay_şif_jlbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(kull_kay_şiftek_jlbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPasswordField5)
-                                    .addComponent(kull_binano_jtfk, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                                    .addComponent(jPasswordField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(kull_kay_jbtn)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jPasswordField5)
+                                            .addComponent(kull_binano_jtfk, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                            .addComponent(jPasswordField4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(26, 26, 26))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(kull_ulkekodu_cmb, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(telefon_no_jtf)))))))
+                .addGap(23, 23, 23))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -594,11 +672,16 @@ public class girisekranı extends javax.swing.JFrame {
                     .addComponent(jPasswordField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(telefon_no_jlbl)
+                    .addComponent(kull_ulkekodu_cmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telefon_no_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(kull_kay_jbtn)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         jPanel4.add(jPanel2, "card3");
@@ -954,6 +1037,10 @@ public class girisekranı extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField5ActionPerformed
 
+    private void yon_ulkekodujcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yon_ulkekodujcmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yon_ulkekodujcmbActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -998,6 +1085,10 @@ public class girisekranı extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Sifremi_Unuttum_kull_jbtn;
+    private javax.swing.JButton Sifremi_unuttum_yon_jbtn;
+    private javax.swing.JLabel Telefon_No_lbl;
+    private javax.swing.JTextField Telefon_Nojtf;
     private javax.swing.JTextField binano_jtf;
     private javax.swing.JComboBox<String> daireno_cmb;
     private javax.swing.JButton jButton1;
@@ -1009,9 +1100,11 @@ public class girisekranı extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1030,6 +1123,7 @@ public class girisekranı extends javax.swing.JFrame {
     private javax.swing.JButton kull_kay_jbtn;
     private javax.swing.JLabel kull_kay_şif_jlbl;
     private javax.swing.JLabel kull_kay_şiftek_jlbl;
+    private javax.swing.JComboBox<String> kull_ulkekodu_cmb;
     private javax.swing.JLabel kullanicibinano_jbl;
     private javax.swing.JLabel kullanicidaireno_jbl;
     private javax.swing.JButton kullanicigiris_btn;
@@ -1037,7 +1131,10 @@ public class girisekranı extends javax.swing.JFrame {
     private javax.swing.JLabel kullanıcı_kaydi_jlbl;
     private javax.swing.JButton kullanıcıgiris_btn1;
     private javax.swing.JPanel kullanıcıpanel;
+    private javax.swing.JLabel telefon_no_jlbl;
+    private javax.swing.JTextField telefon_no_jtf;
     private javax.swing.JLabel title_jbl;
+    private javax.swing.JComboBox<String> yon_ulkekodujcmb;
     private javax.swing.JLabel yoneticibinano_jbl1;
     private javax.swing.JLabel yoneticibinano_jlbl;
     private javax.swing.JTextField yoneticibinano_jtf1;
