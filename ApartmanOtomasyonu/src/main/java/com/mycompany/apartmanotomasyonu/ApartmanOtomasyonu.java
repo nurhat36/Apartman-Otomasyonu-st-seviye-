@@ -1,10 +1,11 @@
-package com.mycompany.apartmanotomasyonu;//wrgerge
+package com.mycompany.apartmanotomasyonu;
 
 
 public class ApartmanOtomasyonu {
 
 
     public static void main(String[] args) {
+
 
            // Formu başlat
         java.awt.EventQueue.invokeLater(new Runnable() {
