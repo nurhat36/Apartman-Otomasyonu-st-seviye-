@@ -7,20 +7,40 @@ package com.mycompany.apartmanotomasyonu;
 import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.UIManager;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
- * @author MONSTERGAMİNG
+ * @author Nurhat
  */
-public class SifremiUnuttum extends javax.swing.JFrame {
+public class kullanici_sifre_unuttu extends javax.swing.JFrame {
 
     /**
-     * Creates new form SifremiUnuttum
+     * Creates new form kullanici_sifre_unuttu
      */
-    public SifremiUnuttum() {
+    public kullanici_sifre_unuttu() {
         initComponents();
         setLocationRelativeTo(null);
+        Sif_Unt_binano_jtf.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                cmbdolur();
+
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                cmbdolur();
+
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                cmbdolur();
+
+            }
+        });
     }
 
     /**
@@ -32,6 +52,10 @@ public class SifremiUnuttum extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        sif_unt_yenisifretekrar_pwf = new javax.swing.JPasswordField();
+        Sif_Gün_jbtn = new javax.swing.JButton();
+        Sif_Unt_binano_kon_jlbl = new javax.swing.JLabel();
+        Sif_Unt_binano_jtf = new javax.swing.JTextField();
         Sifremi_unuttum_jlbl = new javax.swing.JLabel();
         tel_no_gir_lbl = new javax.swing.JLabel();
         Sif_unt_tel_no_jlbl = new javax.swing.JLabel();
@@ -39,16 +63,29 @@ public class SifremiUnuttum extends javax.swing.JFrame {
         Sif_Unt_kon_jlbl = new javax.swing.JLabel();
         Sif_Unt_yenisifre_jlbl = new javax.swing.JLabel();
         Sif_Unt_yenisifretekrar_lbl = new javax.swing.JLabel();
-        Sif_Gün_jbtn = new javax.swing.JButton();
-        Sif_Unt_binano_kon_jlbl = new javax.swing.JLabel();
-        Sif_Unt_binano_jtf = new javax.swing.JTextField();
+        sif_unt_yeni_sif_pwf = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        sif_unt_yeni_sif_pwf = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        sif_unt_yenisifretekrar_pwf = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Sif_Gün_jbtn.setText("Şifremi Güncelle");
+        Sif_Gün_jbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Sif_Gün_jbtnActionPerformed(evt);
+            }
+        });
+
+        Sif_Unt_binano_kon_jlbl.setText("Bina NO :");
+
+        Sif_Unt_binano_jtf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Sif_Unt_binano_jtfActionPerformed(evt);
+            }
+        });
 
         Sifremi_unuttum_jlbl.setText("ŞİFREMİ UNUTTUM");
 
@@ -64,14 +101,9 @@ public class SifremiUnuttum extends javax.swing.JFrame {
 
         Sif_Unt_yenisifretekrar_lbl.setText("Şifre Tekrarı : ");
 
-        Sif_Gün_jbtn.setText("Şifremi Güncelle");
-        Sif_Gün_jbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sif_Gün_jbtnActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Daire No:");
 
-        Sif_Unt_binano_kon_jlbl.setText("Bina NO :");
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel2.setText("E Posta:");
 
@@ -89,41 +121,43 @@ public class SifremiUnuttum extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Sif_Unt_kon_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(100, 100, 100)
-                                    .addComponent(Sif_Gün_jbtn)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Sif_Unt_binano_kon_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Sif_unt_tel_no_jlbl))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Sif_Unt_binano_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Sif_Unt_tel_no_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(129, 129, 129))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Sif_Unt_yenisifre_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Sif_Unt_yenisifretekrar_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1)
-                                    .addComponent(sif_unt_yeni_sif_pwf)
-                                    .addComponent(sif_unt_yenisifretekrar_pwf, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addComponent(Sifremi_unuttum_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Sif_Unt_kon_jlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Sif_Unt_yenisifre_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Sif_Unt_yenisifretekrar_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(sif_unt_yeni_sif_pwf, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                                    .addComponent(sif_unt_yenisifretekrar_pwf))
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(Sif_Gün_jbtn))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(Sif_Unt_binano_kon_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Sif_unt_tel_no_jlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Sif_Unt_binano_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Sif_Unt_tel_no_jtf, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                    .addComponent(jTextField1)))))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(tel_no_gir_lbl)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,30 +166,32 @@ public class SifremiUnuttum extends javax.swing.JFrame {
                 .addComponent(Sifremi_unuttum_jlbl)
                 .addGap(18, 18, 18)
                 .addComponent(tel_no_gir_lbl)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Sif_Unt_binano_kon_jlbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Sif_unt_tel_no_jlbl))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Sif_Unt_binano_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Sif_Unt_tel_no_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Sif_Unt_binano_kon_jlbl)
+                    .addComponent(Sif_Unt_binano_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Sif_unt_tel_no_jlbl)
+                    .addComponent(Sif_Unt_tel_no_jtf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Sif_Unt_yenisifre_jlbl)
                     .addComponent(sif_unt_yeni_sif_pwf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Sif_Unt_yenisifretekrar_lbl)
-                    .addComponent(jButton1)
-                    .addComponent(sif_unt_yenisifretekrar_pwf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                    .addComponent(sif_unt_yenisifretekrar_pwf, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Sif_Unt_kon_jlbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Sif_Gün_jbtn)
@@ -164,7 +200,30 @@ public class SifremiUnuttum extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void cmbdolur() {
 
+        // SQL bağlantı bilgileri
+        SQLHelper dbhelper = new SQLHelper();
+
+        String sql = "SELECT Daire_Sayısı FROM yötici_kayitlari_table WHERE Bina_No = ?";
+        jComboBox1.removeAllItems();
+        try (ResultSet rs = dbhelper.executeQuery(sql, Sif_Unt_binano_jtf.getText())) {
+
+            if (rs.next()) {
+                int daireSayisi = rs.getInt("Daire_Sayısı");
+
+                // Şimdi daire numaralarını ComboBox'a ekleyelim
+                for (int i = 1; i <= daireSayisi; i++) {
+                    jComboBox1.addItem("Daire No: " + i);
+                }
+            } else {
+                jComboBox1.removeAllItems(); // Kayıt bulunmazsa ComboBox'u temizleyin
+            }
+        } catch (SQLException e) {
+            System.err.println("Veri çekme hatası: " + e.getMessage());
+        }
+
+    }
     private void Sif_Gün_jbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sif_Gün_jbtnActionPerformed
         String binano = Sif_Unt_binano_jtf.getText();
         String telefonNumarasi = Sif_Unt_tel_no_jtf.getText();
@@ -211,11 +270,14 @@ public class SifremiUnuttum extends javax.swing.JFrame {
             }
 
         }
-
     }//GEN-LAST:event_Sif_Gün_jbtnActionPerformed
+
+    private void Sif_Unt_binano_jtfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sif_Unt_binano_jtfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Sif_Unt_binano_jtfActionPerformed
 private boolean isVisible4=false;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (isVisible4) {
+       if (isVisible4) {
             sif_unt_yeni_sif_pwf.setEchoChar((Character) '*'); // Varsayılan gizleme karakterini geri yükle
             sif_unt_yenisifretekrar_pwf.setEchoChar((Character) '*'); // Varsayılan gizleme karakterini geri yükle
             jButton1.setText("Göster");
@@ -227,6 +289,9 @@ private boolean isVisible4=false;
         isVisible4 = !isVisible4;
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -241,20 +306,20 @@ private boolean isVisible4=false;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SifremiUnuttum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(kullanici_sifre_unuttu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SifremiUnuttum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(kullanici_sifre_unuttu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SifremiUnuttum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(kullanici_sifre_unuttu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SifremiUnuttum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(kullanici_sifre_unuttu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SifremiUnuttum().setVisible(true);
+                new kullanici_sifre_unuttu().setVisible(true);
             }
         });
     }
@@ -270,6 +335,8 @@ private boolean isVisible4=false;
     private javax.swing.JLabel Sif_unt_tel_no_jlbl;
     private javax.swing.JLabel Sifremi_unuttum_jlbl;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPasswordField sif_unt_yeni_sif_pwf;
