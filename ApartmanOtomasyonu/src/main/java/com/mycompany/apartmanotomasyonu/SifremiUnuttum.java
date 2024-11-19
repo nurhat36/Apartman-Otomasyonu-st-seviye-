@@ -48,8 +48,6 @@ public class SifremiUnuttum extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         sif_unt_yenisifretekrar_pwf = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         Sifremi_unuttum_jlbl.setText("ŞİFREMİ UNUTTUM");
 
         tel_no_gir_lbl.setText("Lütfen kaydolurken kullandığınız telefon numarasını ve bina nonuzu giriniz");

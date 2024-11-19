@@ -42,7 +42,7 @@ public class kullaniciekrani extends javax.swing.JFrame {
         gelirlerdoldur();
         gelirlerdoldur2();
         kull_ekr_ust_lbl1();
-        aidatBilgileriniDoldur();
+
         kul_butceyaz();
     }
 
@@ -65,7 +65,6 @@ public class kullaniciekrani extends javax.swing.JFrame {
         kull_ekr_tbl1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         kull_ekr_tbl2 = new javax.swing.JTable();
-        kull_ekr_ustlbl2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
@@ -128,10 +127,6 @@ public class kullaniciekrani extends javax.swing.JFrame {
 
         kullanicitablomain_panel.add(jScrollPane2, "card3");
 
-        kull_ekr_ustlbl2.setBackground(new java.awt.Color(51, 255, 0));
-        kull_ekr_ustlbl2.setText("Ekstra bina masrafını ödediniz.");
-        kull_ekr_ustlbl2.setOpaque(true);
-
         jLabel1.setText("Bina giderinin dekontunu görüntüle ");
 
         jLabel2.setText("Dekont ID:");
@@ -185,9 +180,7 @@ public class kullaniciekrani extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kull_ekr_ustlbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(kull_ekr_ust_lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(kull_ekr_ust_lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -195,9 +188,7 @@ public class kullaniciekrani extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(kull_ekr_ust_lbl1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kull_ekr_ustlbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(aidat_lbl))
@@ -273,7 +264,8 @@ public void gelirlerdoldur() {
         kull_ekr_tbl1.setModel(model);
         kull_ekr_tbl1.setRowHeight(40); // Satır yüksekliği butonlar için ayarlanır
     }
-private void kul_butceyaz() {
+
+    private void kul_butceyaz() {
         SQLHelper dbhelper = new SQLHelper();
 
         String sql = "SELECT sum(miktar) toplam FROM aidat_gelirleri_table WHERE Bina_No = ?";
@@ -289,76 +281,48 @@ private void kul_butceyaz() {
             System.err.println("Veri çekme hatası: " + e.getMessage());
         }
         String sql2 = "SELECT sum(miktar) toplam FROM Bina_Giderleri_table WHERE Bina_No = ?";
-        
-        double toplam2=0;
+
+        double toplam2 = 0;
         try (ResultSet rs = dbhelper.executeQuery(sql2, girisekranı.bina_no)) {
 
             if (rs.next()) {
                 toplam2 = rs.getInt("toplam");
 
-                gelir_lbl.setText("Bütçe: " + (toplam - toplam2)+" TL");
+                gelir_lbl.setText("Bütçe: " + (toplam - toplam2) + " TL");
             }
         } catch (SQLException e) {
             System.err.println("Veri çekme hatası: " + e.getMessage());
         }
-        System.out.println(toplam-toplam2);
+        System.out.println(toplam - toplam2);
 
     }
-public void aidatBilgileriniDoldur() {
-    SQLHelper dphelper = new SQLHelper();
+
     
 
-    String selectSQL = "SELECT aidat FROM yötici_kayitlari_table WHERE bina_no = ? ";
-    
-    try (ResultSet rs = dphelper.executeQuery(selectSQL, girisekranı.bina_no)) {
-        
-        double toplamAidat = 0.0; // Toplam aidat miktarını tutmak için
+    private String tarih;
 
-        while (rs.next()) {
-            Vector<Object> row = new Vector<>();
-            
-            
-                   
-
-            // Toplam aidat hesabı yapılıyor
-            toplamAidat = rs.getDouble("aidat");
-
-            
-        }
-
-       
-
-        // JLabel üzerinde toplam aidat miktarını gösteriyoruz
-        aidat_lbl.setText("Bu Ayki Aidat: " + toplamAidat + " TL");
-
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-}
-private String tarih;
-public void gelirlerdoldur2() {
+    public void gelirlerdoldur2() {
         SQLHelper dphelper = new SQLHelper();
         DefaultTableModel model = new DefaultTableModel();
 
         model.addColumn("Bina No");
         model.addColumn("Daire No");
         model.addColumn("Tarih");
-        
+
         model.addColumn("Miktar (TL)");
-    
+
         String selectSQL = "SELECT bina_no, Daire_no, Tarih, miktar FROM aidat_gelirleri_table where Bina_no=? and Daire_no=?";
-        try (ResultSet rs = dphelper.executeQuery(selectSQL, girisekranı.bina_no,girisekranı.daire_no)) {
+        try (ResultSet rs = dphelper.executeQuery(selectSQL, girisekranı.bina_no, girisekranı.daire_no)) {
 
             while (rs.next()) {
 
                 Vector<Object> row = new Vector<>();
-                
+
                 row.add(rs.getInt("bina_no"));
                 row.add(rs.getString("Daire_no"));
                 row.add(rs.getString("Tarih"));
-                tarih=rs.getString("Tarih");
+                tarih = rs.getString("Tarih");
                 row.add(rs.getObject("miktar"));
-                
 
                 // Her satır için bir buton yerleştirme
                 model.addRow(row);
@@ -381,41 +345,44 @@ public void gelirlerdoldur2() {
         CardLayout card = (CardLayout) kullanicitablomain_panel.getLayout();
         card.show(kullanicitablomain_panel, "card2");
     }//GEN-LAST:event_kull_ekr_bin_gideri_jbtnActionPerformed
-private void kull_ekr_ust_lbl1() {
-    // Son ödeme tarihini kontrol et
-     LocalDate ayinIlkGunu = LocalDate.now().withDayOfMonth(1);
-     
-    System.out.println("Bu ayın ilk günü: " + ayinIlkGunu);
-    String tarihstr=tarih;
+    private void kull_ekr_ust_lbl1() {
+        // Son ödeme tarihini kontrol et
+        LocalDate ayinIlkGunu = LocalDate.now().withDayOfMonth(1);
 
-    try {
-        // String tarih bilgisini LocalDate'e çevirin
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate tarih = LocalDate.parse(tarihstr, formatter);
-        System.out.println(tarih);
+        System.out.println("Bu ayın ilk günü: " + ayinIlkGunu);
+        String tarihstr = tarih;
 
-        // Tarihi kontrol edin
-        if (tarih.isBefore(ayinIlkGunu)) {
-            // Ödeme yapılmamış veya geç yapılmışsa kırmızı
+        try {
+            // String tarih bilgisini LocalDate'e çevirin
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate tarih = LocalDate.parse(tarihstr, formatter);
+            System.out.println(tarih);
+
+            // Tarihi kontrol edin
+            if (tarih.isBefore(ayinIlkGunu)) {
+                // Ödeme yapılmamış veya geç yapılmışsa kırmızı
+                kull_ekr_ust_lbl1.setBackground(Color.RED);
+                kull_ekr_ust_lbl1.setText("Ödeme yapılmadı veya geç yapıldı");
+            } else {
+                // Ödeme zamanında yapılmışsa yeşil
+                kull_ekr_ust_lbl1.setBackground(Color.GREEN);
+                kull_ekr_ust_lbl1.setText("Ödeme yapıldı");
+            }
+        } catch (DateTimeParseException e) {
+            // Geçersiz tarih formatı durumunda hata mesajı
             kull_ekr_ust_lbl1.setBackground(Color.RED);
-            kull_ekr_ust_lbl1.setText("Ödeme yapılmadı veya geç yapıldı");
-        } else {
-            // Ödeme zamanında yapılmışsa yeşil
-            kull_ekr_ust_lbl1.setBackground(Color.GREEN);
-            kull_ekr_ust_lbl1.setText("Ödeme yapıldı");
+            kull_ekr_ust_lbl1.setText("Geçersiz tarih formatı");
+            System.err.println("Tarih formatı hatalı: " + e.getMessage());
+        } catch (NullPointerException e) {
+            kull_ekr_ust_lbl1.setBackground(Color.RED);
+            kull_ekr_ust_lbl1.setText("Bu zamana kadar hiçbir aidat ödemediniz!");
         }
-    } catch (DateTimeParseException e) {
-        // Geçersiz tarih formatı durumunda hata mesajı
-        kull_ekr_ust_lbl1.setBackground(Color.RED);
-        kull_ekr_ust_lbl1.setText("Geçersiz tarih formatı");
-        System.err.println("Tarih formatı hatalı: " + e.getMessage());
     }
-}
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         SQLHelper dphelper = new SQLHelper();
 
         String selectSQL = "SELECT dekont FROM Bina_Giderleri_table where id=? and Bina_no=?";
-        try (ResultSet rs = dphelper.executeQuery(selectSQL, jSpinner1.getValue(),girisekranı.bina_no)) {
+        try (ResultSet rs = dphelper.executeQuery(selectSQL, jSpinner1.getValue(), girisekranı.bina_no)) {
             if (rs.next()) {
                 // Veriyi alıyoruz
                 byte[] imageBytes = rs.getBytes("dekont");
@@ -455,12 +422,12 @@ private void kull_ekr_ust_lbl1() {
                     imageFrame.setLocationRelativeTo(null); // Frame'i ekrana ortalıyoruz
                     imageFrame.setVisible(true);
                 }
-            }else{
+            } else {
                 jLabel3.setText("yanlış ID");
             }
 
         } catch (SQLException | IOException e) {
-            
+
             e.printStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -517,7 +484,6 @@ private void kull_ekr_ust_lbl1() {
     private javax.swing.JTable kull_ekr_tbl1;
     private javax.swing.JTable kull_ekr_tbl2;
     private javax.swing.JLabel kull_ekr_ust_lbl1;
-    private javax.swing.JLabel kull_ekr_ustlbl2;
     private javax.swing.JPanel kullanicitablomain_panel;
     // End of variables declaration//GEN-END:variables
 }
