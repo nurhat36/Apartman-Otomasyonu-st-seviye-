@@ -120,7 +120,6 @@ public class yöneticiekrani extends javax.swing.JFrame {
         butce_lbl = new javax.swing.JLabel();
         aidat_lbl = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("YÖNETİCİ");
 
         gelirler_btn.setBackground(new java.awt.Color(51, 255, 0));
