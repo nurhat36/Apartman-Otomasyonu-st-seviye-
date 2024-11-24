@@ -73,7 +73,7 @@ public class kullaniciekrani extends javax.swing.JFrame {
         aidat_lbl = new javax.swing.JLabel();
         gelir_lbl = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
 
         kull_ekr_aidat_jbtn.setBackground(new java.awt.Color(0, 0, 255));
         kull_ekr_aidat_jbtn.setText("Aidatlarınız");

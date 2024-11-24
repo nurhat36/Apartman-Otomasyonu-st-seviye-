@@ -148,10 +148,10 @@ public class girisekranı extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GİRİŞ YAP");
-        setBackground(new java.awt.Color(25, 183, 244));
+        setBackground(new java.awt.Color(255, 255, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        yoneticigirisi_btn.setBackground(new java.awt.Color(255, 0, 204));
+        yoneticigirisi_btn.setBackground(new java.awt.Color(51, 255, 51));
         yoneticigirisi_btn.setText("Yönetici Girişi");
         yoneticigirisi_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,7 +159,7 @@ public class girisekranı extends javax.swing.JFrame {
             }
         });
 
-        kullanıcıgiris_btn1.setBackground(new java.awt.Color(51, 255, 255));
+        kullanıcıgiris_btn1.setBackground(new java.awt.Color(255, 51, 51));
         kullanıcıgiris_btn1.setText("Kullanıcı Girişi");
         kullanıcıgiris_btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +171,7 @@ public class girisekranı extends javax.swing.JFrame {
 
         jPanel3.setLayout(new java.awt.CardLayout());
 
-        yöneticipanel.setBackground(new java.awt.Color(255, 0, 204));
+        yöneticipanel.setBackground(new java.awt.Color(255, 255, 204));
 
         yoneticititle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         yoneticititle.setText("Yönetici Girişi");
@@ -705,7 +705,7 @@ public class girisekranı extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(kullanıcıgiris_btn1)
+                        .addComponent(kullanıcıgiris_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(yoneticigirisi_btn))
                     .addComponent(kullanicimain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
