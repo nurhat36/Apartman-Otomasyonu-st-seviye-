@@ -696,7 +696,8 @@ public class yöneticiekrani extends javax.swing.JFrame {
         setInitialDate();
     }//GEN-LAST:event_gelirtarihActionPerformed
     private void resimleridoldur(){
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/apartmanotomasyonu/aayanu0vh.png")));
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("com/mycompany/apartmanotomasyonu/aayanu0vh.jpg")));
+
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/apartmanotomasyonu/su.png"))); // NOI18N
 
