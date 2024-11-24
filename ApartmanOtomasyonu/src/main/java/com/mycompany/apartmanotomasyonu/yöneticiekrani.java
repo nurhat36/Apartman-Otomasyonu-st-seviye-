@@ -121,6 +121,7 @@ public class yöneticiekrani extends javax.swing.JFrame {
         aidat_lbl = new javax.swing.JLabel();
 
         setTitle("YÖNETİCİ");
+        setBackground(new java.awt.Color(255, 255, 204));
 
         gelirler_btn.setBackground(new java.awt.Color(51, 255, 0));
         gelirler_btn.setText("GELİRLER");
@@ -148,12 +149,12 @@ public class yöneticiekrani extends javax.swing.JFrame {
 
         yoneticimain_panel.setLayout(new java.awt.CardLayout());
 
-        gelirler_panel.setBackground(new java.awt.Color(51, 255, 0));
+        gelirler_panel.setBackground(new java.awt.Color(255, 255, 204));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setText("GELİRLER");
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Miktar Giriniz :");

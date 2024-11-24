@@ -70,6 +70,8 @@ public class kullanici_sifre_unuttu extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 204));
+
         Sif_Gün_jbtn.setText("Şifremi Güncelle");
         Sif_Gün_jbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
